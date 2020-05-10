@@ -18,6 +18,7 @@
   <select id="chords">
 <option value=""></option>
   <option value="majorChords">Major Chords Mode</option>
+  <option value="minorChords">Minor Chords Mode</option>
 
 
 </select>
@@ -259,6 +260,7 @@ window.addEventListener("keydown", playNote);
   var notesToSelect = [];
   
   $("#chords").change(function(){
+	  if($("#chords").val() == "majorChords"){
 	$("div").hover(function(){
 		if(this.className.split(' ').pop() != hoveredDiv){
 			uncoloringNotes(notesToSelect[0], notesToSelect[1], notesToSelect[2], originalColor[0], originalColor[1], originalColor[2]);
@@ -500,7 +502,164 @@ window.addEventListener("keydown", playNote);
 			document.getElementById(note3).play();
 		}
 	});
-  
+}
+
+
+
+if($("#chords").val() == "minorChords"){
+	$("div").hover(function(){
+		if(this.className.split(' ').pop() != hoveredDiv){
+			uncoloringNotes(notesToSelect[0], notesToSelect[1], notesToSelect[2], originalColor[0], originalColor[1], originalColor[2]);
+			
+		}
+		
+		hoveredDiv = this.className.split(' ').pop();
+	
+		
+		switch(hoveredDiv) {
+		case "C1":
+			notesToSelect = [".C1", ".Dsharp1", ".G1"];
+			coloringNotes(".C1", ".Dsharp1", ".G1", "yellow");
+			$(".C1").click(function(){
+				playChords("C1", "Dsharp1", "G1");
+			});
+			break;
+			
+		case "Csharp1":
+		  	notesToSelect = [".Csharp1", ".E1", ".Gsharp1"];
+			coloringNotes(".Csharp1", ".E1", ".Gsharp1", "yellow");
+			$(".Csharp1").click(function(){
+				playChords("Csharp1", "E1", "Gsharp1");
+			});
+			break;
+
+		case "D1":
+		  	notesToSelect = [".D1", ".F1", ".A1"];
+			coloringNotes(".D1", ".F1", ".A1", "yellow");
+			$(".D1").click(function(){
+				playChords("D1", "F1", "A1");
+			});
+			break;
+		  
+		case "Dsharp1":
+		  	notesToSelect = [".Dsharp1", ".Fsharp1", ".Asharp1"];
+			coloringNotes(".Dsharp1", ".Fsharp1", ".Asharp1", "yellow");
+			$(".Dsharp1").click(function(){
+				playChords("Dsharp1", "Fsharp1", "Asharp1");
+			});
+			break;
+
+		case "E1":
+		  	notesToSelect = [".E1", ".G1", ".B1"];
+			coloringNotes(".E1", ".G1", ".B1", "yellow");
+			$(".E1").click(function(){
+				playChords("E1", "G1", "B1");
+			});
+			break;
+
+		case "F1":
+		  	notesToSelect = [".F1", ".Gsharp1", ".C2"];
+			coloringNotes(".F1", ".Gsharp1", ".C2", "yellow");
+			$(".F1").click(function(){
+				playChords("F1", "Gsharp1", "C2");
+			});
+			break;
+
+		case "Fsharp1":
+		  	notesToSelect = [".Fsharp1", ".A1", ".Csharp2"];
+			coloringNotes(".Fsharp1", ".A1", ".Csharp2", "yellow");
+			$(".Fsharp1").click(function(){
+				playChords("Fsharp1", "A1", "Csharp2");
+			});
+			break;
+
+		case "G1":
+		  	notesToSelect = [".G1", ".Asharp1", ".D2"];
+			coloringNotes(".G1", ".Asharp1", ".D2", "yellow");
+			$(".G1").click(function(){
+				playChords("G1", "Asharp1", "D2");
+			});
+			break;
+
+		case "Gsharp1":
+		  	notesToSelect = [".Gsharp1", ".B1", ".Dsharp2"];
+			coloringNotes(".Gsharp1", ".B1", ".Dsharp2", "yellow");
+			$(".Gsharp1").click(function(){
+				playChords("Gsharp1", "B1", "Dsharp2");
+			});
+			break;
+
+		case "A1":
+		  	notesToSelect = [".A1", ".C2", ".E2"];
+			coloringNotes(".A1", ".C2", ".E2", "yellow");
+			$(".A1").click(function(){
+				playChords("A1", "C2", "E2");
+			});
+			break;
+
+		case "Asharp1":
+		  	notesToSelect = [".Asharp1", ".Csharp2", ".F2"];
+			coloringNotes(".Asharp1", ".Csharp2", ".F2", "yellow");
+			$(".Asharp1").click(function(){
+				playChords("Asharp1", "Csharp2", "F2");
+			});
+			break;
+
+		case "B1":
+		  	notesToSelect = [".B1", ".D2", ".Fsharp2"];
+			coloringNotes(".B1", ".D2", ".Fsharp2", "yellow");
+			$(".B1").click(function(){
+				playChords("B1", "D2", "Fsharp2");
+			});
+			break;
+
+			/* ------------------------------------------------------------------------------second section ---------------------------------*/
+
+		
+
+
+		  default:
+			// code block
+		} 
+
+		
+		
+		
+		function coloringNotes(note1, note2, note3, notesColor){
+			originalColor.push($(note1).css("background-color"));
+			originalColor.push($(note2).css("background-color"));
+			originalColor.push($(note3).css("background-color"));
+
+			$(note1).css("background-color", notesColor);
+			$(note2).css("background-color", notesColor);
+			$(note3).css("background-color", notesColor);
+			
+		}
+		
+		function uncoloringNotes(note1, note2, note3, notesColor1, notesColor2, notesColor3){
+			$(note1).css("background-color", notesColor1);
+			$(note2).css("background-color", notesColor2);
+			$(note3).css("background-color", notesColor3);
+			originalColor = [];
+		}
+		
+		
+		function playChords(note1, note2, note3){
+			document.getElementById(note1).currentTime = 0;
+			document.getElementById(note2).currentTime = 0;
+			document.getElementById(note3).currentTime = 0;
+			
+			document.getElementById(note1).play();
+			document.getElementById(note2).play();
+			document.getElementById(note3).play();
+		}
+	});
+}
+
+
+
+
+
 });
   
   
