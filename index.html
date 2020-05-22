@@ -1,2289 +1,1835 @@
-
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous" />
+
+		
+		<link href="https://fonts.googleapis.com/css2?family=Kumar+One+Outline&family=Londrina+Outline&display=swap" rel="stylesheet">
+		
+        <title>Hello, world!</title>
+    </head>
+    <body style="">
 	
-	 <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <div id="bg" class="d-flex justify-content-center p-0 m-0" style="background-color: #FF9F43; height: 50vh; ">
+            <h1 class="align-self-end" style="font-size: 4rem; backdrop-filter: blur(20px) brightness(120%); padding: 1%; border-radius: 12px;">LearnPiano.ca</h1>
 
-    <title>Hello, world!</title>
-  </head>
-  <body style="">
+	</div>
+	<style>
+	#bg{
+	  /* The image used */
+  background-image: url("marc.png");
+
+  font-family: 'Kumar One Outline', cursive;
+
+  font-weight: 900;
   
- 
-  
-  
-<label>Mode :</label>
-<select id="mode">
-	<option value=""></option>
-	  <option value="majorScale">Major Scale (Ionian)</option>
-	  <option value="minorScale">Natural Minor Scale (Aeolian)</option>
-	  <option value="dorianScale">Dorian scale</option>
-	  <option value="phrygianScale">Phrygian scale</option>
-	  <option value="LydianScale">Lydian scale</option>
-	  <option value="mixolydianScale">Mixolydian scale</option>
-	  <option value="locrianScale">Locrian scale</option>
-	  
-	</select>
-
-	<br>
-
-	<label>root :</label>
-    <select id="root">
-<option value=""></option>
-  <option value="C1">C1</option>
-  <option value="Csharp1">C#1</option>
-  <option value="D1">D1</option>
-  <option value="Dsharp1">D#1</option>
-  <option value="E1">E1</option>
-  <option value="F1">F1</option>
-  <option value="Fsharp1">F#1</option>
-  <option value="G1">G1</option>
-  <option value="Gsharp1">G#1</option>
-  <option value="A1">A1</option>
-  <option value="Asharp1">A#1</option>
-  <option value="B1">B1</option>
-  <option value="C2">C2</option>
-</select>
-
-<br>
-  
-  <select id="chords">
-<option value=""></option>
-  <option value="majorChords">Major Chords Mode</option>
-  <option value="minorChords">Minor Chords Mode</option>
-</select>
-  
-  
-  
-  <div id="mainBody">
-  
-  
-   <label for="points">Volume :</label>
-<input type="range"  class="form-control-range" id="volumeRange" name="volumeRange" min="0" max="1" step="0.1"> 
-  
-  
-  
-  
-<select id="scales">
-<option value=""></option>
-  <option value="cMajor">C Major</option>
-  <option value="dMajor">D Major</option>
-  <option value="eMajor">E Major</option>
-  <option value="fMajor">F Major</option>
-  <option value="gMajor">G Major</option>
-  <option value="aMajor">A Major</option>
-  <option value="bMajor">B Major</option>
-  <option value="c#Major">C# / Db Major</option>
-  <option value="d#Major">D# / Eb Major</option>
-  <option value="f#Major">F# / Gb Major</option>
-  <option value="g#Major">G# / Ab Major</option>
-  <option value="a#Major">A# / Bb Major</option>
-  
-  
-  
-  <option value="aMinor">A Minor</option>
-  <option value="a#Minor">A# / Bb Minor</option>
-  <option value="bMinor">B Minor</option>
-  <option value="cMinor">C Minor</option>
-  <option value="c#Minor">C# / Db Minor</option>
-  <option value="dMinor">D Minor</option>
-  <option value="d#Minor">D# / Eb Minor</option>
-  <option value="eMinor">E Minor</option>
-  <option value="fMinor">F Minor</option>
-  <option value="f#Minor">F# / Gb Minor</option>
-  <option value="gMinor">G Minor</option>
-  <option value="g#Minor">G# / Ab Minor</option>
-
-</select>
-
-
-	  <button class="btn btn-primary" style="">play scale</button>
-
-
-
-
-
-
-<div id="keyboard">
-  <div class="key white c C1" data-note="C3" style="text-align: center; color: white">C</div>
-  <div class="key black c_sharp Csharp1" data-note="C#3" style="text-align: center; color: white">C#</div>
-  <div class="key white d D1" data-note="D3" style="text-align: center; color: white">D</div>
-  <div class="key black d_sharp Dsharp1" data-note="D#3" style="text-align: center; color: white">D#</div>
-  <div class="key white e E1" data-note="E3" style="text-align: center; color: white">E</div>
-  <div class="key white f F1" data-note="F3" style="text-align: center; color: white">F</div>
-  <div class="key black f_sharp Fsharp1" data-note="F#3" style="text-align: center; color: white">F#</div>
-  <div class="key white g G1" data-note="G3" style="text-align: center; color: white">G</div>
-  <div class="key black g_sharp Gsharp1" data-note="G#3" style="text-align: center; color: white">G#</div>
-  <div class="key white a A1" data-note="A3" style="text-align: center; color: white">A</div>
-  <div class="key black a_sharp Asharp1" data-note="A#3" style="text-align: center; color: white">A#</div>
-  <div class="key white b B1" data-note="B3" style="text-align: center; color: white">B</div>
-  <div class="key white c C2" data-note="C4" style="text-align: center; color: white">C</div>
-  <div class="key black c_sharp Csharp2" data-note="C#4" style="text-align: center; color: white">C#</div>
-  <div class="key white d D2" data-note="D4" style="text-align: center; color: white">D</div>
-  <div class="key black d_sharp Dsharp2" data-note="D#4" style="text-align: center; color: white">D#</div>
-  <div class="key white e E2" data-note="E4" style="text-align: center; color: white">E</div>
-  <div class="key white f F2" data-note="F4" style="text-align: center; color: white">F</div>
-  <div class="key black f_sharp Fsharp2" data-note="F#4" style="text-align: center; color: white">F#</div>
-  <div class="key white g G2" data-note="G4" style="text-align: center; color: white">G</div>
-  <div class="key black g_sharp Gsharp2" data-note="G#4" style="text-align: center; color: white">G#</div>
-  <div class="key white a A2" data-note="A4" style="text-align: center; color: white">A</div>
-  <div class="key black a_sharp Asharp2" data-note="A#4" style="text-align: center; color: white">A#</div>
-  <div class="key white b B2" data-note="B4" style="text-align: center; color: white">B</div>
-  <div class="key white c C3" data-note="C5" style="text-align: center; color: white">C</div>
-</div>
-
-
-
-
-</div>
-<style>
-html {
-  height: 100%;
-  display: flex;
-     justify-content: center;
-}
-
-#body {
-  height: 100%;
-  display: -webkit-box;
-  display: flex;
-  margin: auto;
-  -webkit-box-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-          align-items: center;
-  background-color: #111;
-}
-
-.key {
-  float: left;
-  position: relative;
-}
-
-.white {
-  height: 14.4vw;
-  //width: 3.8095238095vw;
-  width: 5.71428571425vw	;
-  z-index: 1;
-	border: 3px solid black;
-  background-color: #cbcbcb;
-}
-
-.black {
-  height: 7.92vw;
-  width: 2.0952380952vw;
-  z-index: 2;
-  border: 3px solid black;
-  background-color: #222222;
-}
-
-.a,
-.b,
-.d,
-.e,
-.g,
-.black {
-  margin: 0 0 0 -1.1676190476vw;
-}
-
-#keyboard > .note:last-child {
-  border-right: 0.12vw solid #aaaaaa;
-}
-
-</style>
-
-
-	  
-	  
-
-	  
-	  <section id="wrap">
-	  <section id="main">
-
-      <audio id="C1" data-key="81" src="https://www.magame.ca/piano/261-C.mp3"></audio>
-      <audio id="Csharp1"data-key="50" src="https://www.magame.ca/piano/277-C-sharp.mp3"></audio>
-      <audio id="D1" data-key="87" src="https://www.magame.ca/piano/293-D.mp3"></audio>
-      <audio id="Dsharp1" data-key="51" src="https://www.magame.ca/piano/311-D-sharp.mp3"></audio>
-      <audio id="E1" data-key="69" src="https://www.magame.ca/piano/329-E.mp3"></audio>
-      <audio id="F1" data-key="82" src="https://www.magame.ca/piano/349-F.mp3"></audio>
-      <audio id="Fsharp1" data-key="53" src="https://www.magame.ca/piano/369F-sharp.mp3"></audio>
-      <audio id="G1" data-key="84" src="https://www.magame.ca/piano/391-G.mp3"></audio>
-      <audio id="Gsharp1" data-key="54" src="https://www.magame.ca/piano/415-G-sharp.mp3"></audio>
-      <audio id="A1" data-key="89" src="https://www.magame.ca/piano/440-A.mp3"></audio>
-      <audio id="Asharp1" data-key="55" src="https://www.magame.ca/piano/466-A-sharp.mp3"></audio>
-      <audio id="B1" data-key="85" src="https://www.magame.ca/piano/495-B.mp3"></audio>
-      <audio id="C2" data-key="73" src="https://www.magame.ca/piano/523-C.mp3"></audio>
-      <audio id="Csharp2" data-key="57" src="https://www.magame.ca/piano/545-C-sharp.mp3"></audio>
-      <audio id="D2" data-key="79" src="https://www.magame.ca/piano/587-D.mp3"></audio>
-      <audio id="Dsharp2" data-key="48" src="https://www.magame.ca/piano/622-D-sharp.mp3"></audio>
-      <audio id="E2" data-key="80" src="https://www.magame.ca/piano/659-E.mp3"></audio>
-	  
-	  <audio id="F2" data-key="226" src="https://www.magame.ca/piano/698-F.mp3"></audio>
-	  <audio id="Fsharp2" data-key="65" src="https://www.magame.ca/piano/698-F-sharp.mp3"></audio>
-	  <audio id="G2" data-key="90" src="https://www.magame.ca/piano/783-G.mp3"></audio>
-	  <audio id="Gsharp2" data-key="83" src="https://www.magame.ca/piano/830-G-sharp.mp3"></audio>
-	  <audio id="A2" data-key="88" src="https://www.magame.ca/piano/880-A.mp3"></audio>
-	  <audio id="Asharp2" data-key="68" src="https://www.magame.ca/piano/932-A-sharp.mp3"></audio>
-	  <audio id="B2" data-key="67" src="https://www.magame.ca/piano/987-B.mp3"></audio>
-	  <audio id="C3" data-key="86" src="https://www.magame.ca/piano/1046-C.mp3"></audio>
-	  
-      </section>
-  </section>
-
-  
-  <p class="note-info"></p>
-  
-  
-  <script>
-
-
-  </script>
-  
-  
-  
-      <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script
-			  src="https://code.jquery.com/jquery-3.5.1.min.js"
-			  integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
-			  crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
- 
-
-
-
-
- 
-  
-  <script>
-  
-  var notesNum = [0, 0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4, 4.5, 5, 5.5, 6, 6.5, 7, 7.5, 8, 8.5, 9, 9.5, 10, 10.5, 11, 11.5, 12]
-  //25 
-  var keyNames = ["C1", "Csharp1", "D1", "Dsharp1", "E1", "F1", "Fsharp1", "G1", "Gsharp1", "A1", "Asharp1", "B1", "C2", "Csharp2", "D2", "Dsharp2", "E2", "F2", "Fsharp2", "G2", "Gsharp2", "A2", "Asharp2", "B2", "C3"]
-  
-  $("#root").change(function(){
-
-	$(".C1").css("background-color", "#cbcbcb");
-	$(".Csharp1").css("background-color", "#000");
-	$(".D1").css("background-color", "#cbcbcb");
-	$(".Dsharp1").css("background-color", "#000");
-	$(".E1").css("background-color", "#cbcbcb");
-	$(".F1").css("background-color", "#cbcbcb");
-	$(".Fsharp1").css("background-color", "#000");
-	$(".G1").css("background-color", "#cbcbcb");
-	$(".Gsharp1").css("background-color", "#000");
-	$(".A1").css("background-color", "#cbcbcb");
-	$(".Asharp1").css("background-color", "#000");
-	$(".B1").css("background-color", "#cbcbcb");
-	
-	$(".C2").css("background-color", "#cbcbcb");
-	$(".Csharp2").css("background-color", "#000");
-	$(".D2").css("background-color", "#cbcbcb");
-	$(".Dsharp2").css("background-color", "#000");
-	$(".E2").css("background-color", "#cbcbcb");
-	$(".F2").css("background-color", "#cbcbcb");
-	$(".Fsharp2").css("background-color", "#000");
-	$(".G2").css("background-color", "#cbcbcb");
-	$(".Gsharp2").css("background-color", "#000");
-	$(".A2").css("background-color", "#cbcbcb");
-	$(".Asharp2").css("background-color", "#000");
-	$(".B2").css("background-color", "#cbcbcb");
-	$(".C3").css("background-color", "#cbcbcb");
-
-
-////////////////////////////////////////////////////////////////////////////////////MAJOR SCALE//////////////////////////////////////////////////
-
-	if($("#mode").val() == "majorScale"){
-	
-	let rootKeyName;
-	
-	switch($("#root").val()){
-	case "C1":
-		rootKeyName = $("#root").val();
-		makeScale(rootKeyName,1, 2, 2.5, 3.5, 4.5, 5.5, 6);
-		break;
-		
-	case "Csharp1":
-		rootKeyName = $("#root").val();
-		makeScale(rootKeyName,1, 2, 2.5, 3.5, 4.5, 5.5, 6);
-		break;
-		
-	case "D1":
-		rootKeyName = $("#root").val();
-		makeScale(rootKeyName,1, 2, 2.5, 3.5, 4.5, 5.5, 6);
-		break;
-		
-	case "Dsharp1":
-		rootKeyName = $("#root").val();
-		makeScale(rootKeyName,1, 2, 2.5, 3.5, 4.5, 5.5, 6);
-		break;
-		
-	case "E1":
-		rootKeyName = $("#root").val();
-		makeScale(rootKeyName,1, 2, 2.5, 3.5, 4.5, 5.5, 6);
-		break;
-		
-	case "F1":
-		rootKeyName = $("#root").val();
-		makeScale(rootKeyName,1, 2, 2.5, 3.5, 4.5, 5.5, 6);
-		break;
-		
-	case "Fsharp1":
-		rootKeyName = $("#root").val();
-		makeScale(rootKeyName,1, 2, 2.5, 3.5, 4.5, 5.5, 6);
-		break;
-		
-	case "G1":
-		rootKeyName = $("#root").val();
-		makeScale(rootKeyName,1, 2, 2.5, 3.5, 4.5, 5.5, 6);
-		break;
-		
-	case "Gsharp1":
-		rootKeyName = $("#root").val();
-		makeScale(rootKeyName,1, 2, 2.5, 3.5, 4.5, 5.5, 6);
-		break;
-		
-	case "A1":
-		rootKeyName = $("#root").val();
-		makeScale(rootKeyName,1, 2, 2.5, 3.5, 4.5, 5.5, 6);
-		break;
-		
-	case "Asharp1":
-		rootKeyName = $("#root").val();
-		makeScale(rootKeyName,1, 2, 2.5, 3.5, 4.5, 5.5, 6);
-		break;
-		
-	case "B1":
-		rootKeyName = $("#root").val();
-		makeScale(rootKeyName,1, 2, 2.5, 3.5, 4.5, 5.5, 6);
-		break;
-		
-	case "C2":
-		rootKeyName = $("#root").val();
-		makeScale(rootKeyName,1, 2, 2.5, 3.5, 4.5, 5.5, 6);
-		break;
-		
-
-		
-		default:
-		console.log("error une the root drop down selection")
-	}
-
-	}
-
-///////////////////////////////////////////////////////////////////////////MINOR SCALE///////////////////////////////////////////////////////
-
-	if($("#mode").val() == "minorScale"){
-
-		switch($("#root").val()){
-	case "C1":
-		rootKeyName = $("#root").val();
-		makeScale(rootKeyName,1, 1.5, 2.5, 3.5, 4, 5, 6);
-		break;
-		
-	case "Csharp1":
-		rootKeyName = $("#root").val();
-		makeScale(rootKeyName,1, 1.5, 2.5, 3.5, 4, 5, 6);
-		break;
-		
-	case "D1":
-		rootKeyName = $("#root").val();
-		makeScale(rootKeyName,1, 1.5, 2.5, 3.5, 4, 5, 6);
-		break;
-		
-	case "Dsharp1":
-		rootKeyName = $("#root").val();
-		makeScale(rootKeyName,1, 1.5, 2.5, 3.5, 4, 5, 6);
-		break;
-		
-	case "E1":
-		rootKeyName = $("#root").val();
-		makeScale(rootKeyName,1, 1.5, 2.5, 3.5, 4, 5, 6);
-		break;
-		
-	case "F1":
-		rootKeyName = $("#root").val();
-		makeScale(rootKeyName,1, 1.5, 2.5, 3.5, 4, 5, 6);
-		break;
-		
-	case "Fsharp1":
-		rootKeyName = $("#root").val();
-		makeScale(rootKeyName,1, 1.5, 2.5, 3.5, 4, 5, 6);
-		break;
-		
-	case "G1":
-		rootKeyName = $("#root").val();
-		makeScale(rootKeyName,1, 1.5, 2.5, 3.5, 4, 5, 6);
-		break;
-		
-	case "Gsharp1":
-		rootKeyName = $("#root").val();
-		makeScale(rootKeyName,1, 1.5, 2.5, 3.5, 4, 5, 6);
-		break;
-		
-	case "A1":
-		rootKeyName = $("#root").val();
-		makeScale(rootKeyName,1, 1.5, 2.5, 3.5, 4, 5, 6);
-		break;
-		
-	case "Asharp1":
-		rootKeyName = $("#root").val();
-		makeScale(rootKeyName,1, 1.5, 2.5, 3.5, 4, 5, 6);
-		break;
-		
-	case "B1":
-		rootKeyName = $("#root").val();
-		makeScale(rootKeyName,1, 1.5, 2.5, 3.5, 4, 5, 6);
-		break;
-		
-	case "C2":
-		rootKeyName = $("#root").val();
-		makeScale(rootKeyName,1, 1.5, 2.5, 3.5, 4, 5, 6);
-		break;
-		
-
-		
-		default:
-		console.log("error une the root drop down selection")
-	}
-
-	}
-
-	///////////////////////////////////////////////////////////////////////////////DORIAN SCALE/////////////////////////////////////////////////////
-
-		if($("#mode").val() == "dorianScale"){
-
-			switch($("#root").val()){
-				case "C1":
-				rootKeyName = $("#root").val();
-				makeScale(rootKeyName,1, 1.5, 2.5, 3.5, 4.5, 5, 6);
-				break;
-
-				case "Csharp1":
-				rootKeyName = $("#root").val();
-				makeScale(rootKeyName,1, 1.5, 2.5, 3.5, 4.5, 5, 6);
-				break;
-
-				case "D1":
-				rootKeyName = $("#root").val();
-				makeScale(rootKeyName,1, 1.5, 2.5, 3.5, 4.5, 5, 6);
-				break;
-
-				case "Dsharp1":
-				rootKeyName = $("#root").val();
-				makeScale(rootKeyName,1, 1.5, 2.5, 3.5, 4.5, 5, 6);
-				break;
-
-				case "E1":
-				rootKeyName = $("#root").val();
-				makeScale(rootKeyName,1, 1.5, 2.5, 3.5, 4.5, 5, 6);
-				break;
-
-				case "F1":
-				rootKeyName = $("#root").val();
-				makeScale(rootKeyName,1, 1.5, 2.5, 3.5, 4.5, 5, 6);
-				break;
-
-				case "Fsharp1":
-				rootKeyName = $("#root").val();
-				makeScale(rootKeyName,1, 1.5, 2.5, 3.5, 4.5, 5, 6);
-				break;
-
-				case "G1":
-				rootKeyName = $("#root").val();
-				makeScale(rootKeyName,1, 1.5, 2.5, 3.5, 4.5, 5, 6);
-				break;
-
-				case "Gsharp1":
-				rootKeyName = $("#root").val();
-				makeScale(rootKeyName,1, 1.5, 2.5, 3.5, 4.5, 5, 6);
-				break;
-
-				case "A1":
-				rootKeyName = $("#root").val();
-				makeScale(rootKeyName,1, 1.5, 2.5, 3.5, 4.5, 5, 6);
-				break;
-
-				case "Asharp1":
-				rootKeyName = $("#root").val();
-				makeScale(rootKeyName,1, 1.5, 2.5, 3.5, 4.5, 5, 6);
-				break;
-
-				case "B1":
-				rootKeyName = $("#root").val();
-				makeScale(rootKeyName,1, 1.5, 2.5, 3.5, 4.5, 5, 6);
-				break;
-
-				case "C2":
-				rootKeyName = $("#root").val();
-				makeScale(rootKeyName,1, 1.5, 2.5, 3.5, 4.5, 5, 6);
-				break;
-
-
-
-				default:
-				console.log("error une the root drop down selection")
-			}
-
-	}
-
-	//////////////////////////////////////////////////////////////////////////////PHRYGIAN SCALE/////////////////////////////////////////////////
-
-	if($("#mode").val() == "phrygianScale"){
-
-switch($("#root").val()){
-	case "C1":
-	rootKeyName = $("#root").val();
-	makeScale(rootKeyName,0.5, 1.5, 2.5, 3.5, 4, 5, 6);
-	break;
-
-	case "Csharp1":
-	rootKeyName = $("#root").val();
-	makeScale(rootKeyName,0.5, 1.5, 2.5, 3.5, 4, 5, 6);
-	break;
-
-	case "D1":
-	rootKeyName = $("#root").val();
-	makeScale(rootKeyName,0.5, 1.5, 2.5, 3.5, 4, 5, 6);
-	break;
-
-	case "Dsharp1":
-	rootKeyName = $("#root").val();
-	makeScale(rootKeyName,0.5, 1.5, 2.5, 3.5, 4, 5, 6);
-	break;
-
-	case "E1":
-	rootKeyName = $("#root").val();
-	makeScale(rootKeyName,0.5, 1.5, 2.5, 3.5, 4, 5, 6);
-	break;
-
-	case "F1":
-	rootKeyName = $("#root").val();
-	makeScale(rootKeyName,0.5, 1.5, 2.5, 3.5, 4, 5, 6);
-	break;
-
-	case "Fsharp1":
-	rootKeyName = $("#root").val();
-	makeScale(rootKeyName,0.5, 1.5, 2.5, 3.5, 4, 5, 6);
-	break;
-
-	case "G1":
-	rootKeyName = $("#root").val();
-	makeScale(rootKeyName,0.5, 1.5, 2.5, 3.5, 4, 5, 6);
-	break;
-
-	case "Gsharp1":
-	rootKeyName = $("#root").val();
-	makeScale(rootKeyName,0.5, 1.5, 2.5, 3.5, 4, 5, 6);
-	break;
-
-	case "A1":
-	rootKeyName = $("#root").val();
-	makeScale(rootKeyName,0.5, 1.5, 2.5, 3.5, 4, 5, 6);
-	break;
-
-	case "Asharp1":
-	rootKeyName = $("#root").val();
-	makeScale(rootKeyName,0.5, 1.5, 2.5, 3.5, 4, 5, 6);
-	break;
-
-	case "B1":
-	rootKeyName = $("#root").val();
-	makeScale(rootKeyName,0.5, 1.5, 2.5, 3.5, 4, 5, 6);
-	break;
-
-	case "C2":
-	rootKeyName = $("#root").val();
-	makeScale(rootKeyName,0.5, 1.5, 2.5, 3.5, 4, 5, 6);
-	break;
-
-
-
-	default:
-	console.log("error une the root drop down selection")
-}
-
-}
-
-	//////////////////////////////////////////////////////////////////////////////LYDIAN SCALE//////////////////////////////////////////////////
-
-	if($("#mode").val() == "lydianScale"){
-
-switch($("#root").val()){
-	case "C1":
-	rootKeyName = $("#root").val();
-	makeScale(rootKeyName, 1, 2, 3, 3.5, 4.5, 5.5, 6);
-	break;
-
-	case "Csharp1":
-	rootKeyName = $("#root").val();
-	makeScale(rootKeyName, 1, 2, 3, 3.5, 4.5, 5.5, 6);
-	break;
-
-	case "D1":
-	rootKeyName = $("#root").val();
-	makeScale(rootKeyName, 1, 2, 3, 3.5, 4.5, 5.5, 6);
-	break;
-
-	case "Dsharp1":
-	rootKeyName = $("#root").val();
-	makeScale(rootKeyName, 1, 2, 3, 3.5, 4.5, 5.5, 6);
-	break;
-
-	case "E1":
-	rootKeyName = $("#root").val();
-	makeScale(rootKeyName, 1, 2, 3, 3.5, 4.5, 5.5, 6);
-	break;
-
-	case "F1":
-	rootKeyName = $("#root").val();
-	makeScale(rootKeyName, 1, 2, 3, 3.5, 4.5, 5.5, 6);
-	break;
-
-	case "Fsharp1":
-	rootKeyName = $("#root").val();
-	makeScale(rootKeyName, 1, 2, 3, 3.5, 4.5, 5.5, 6);
-	break;
-
-	case "G1":
-	rootKeyName = $("#root").val();
-	makeScale(rootKeyName, 1, 2, 3, 3.5, 4.5, 5.5, 6);
-	break;
-
-	case "Gsharp1":
-	rootKeyName = $("#root").val();
-	makeScale(rootKeyName, 1, 2, 3, 3.5, 4.5, 5.5, 6);
-	break;
-
-	case "A1":
-	rootKeyName = $("#root").val();
-	makeScale(rootKeyName, 1, 2, 3, 3.5, 4.5, 5.5, 6);
-	break;
-
-	case "Asharp1":
-	rootKeyName = $("#root").val();
-	makeScale(rootKeyName, 1, 2, 3, 3.5, 4.5, 5.5, 6);
-	break;
-
-	case "B1":
-	rootKeyName = $("#root").val();
-	makeScale(rootKeyName, 1, 2, 3, 3.5, 4.5, 5.5, 6);
-	break;
-
-	case "C2":
-	rootKeyName = $("#root").val();
-	makeScale(rootKeyName, 1, 2, 3, 3.5, 4.5, 5.5, 6);
-	break;
-
-
-
-	default:
-	console.log("error une the root drop down selection")
-}
-
-}
-
-	/////////////////////////////////////////////////////////////////////////////MIXOLYDIAN SCALE///////////////////////////////////////////////
-
-	if($("#mode").val() == "mixolydianScale"){
-
-switch($("#root").val()){
-	case "C1":
-	rootKeyName = $("#root").val();
-	makeScale(rootKeyName, 1, 2, 2.5, 3.5, 4.5, 5, 6);
-	break;
-
-	case "Csharp1":
-	rootKeyName = $("#root").val();
-	makeScale(rootKeyName, 1, 2, 2.5, 3.5, 4.5, 5, 6);
-	break;
-
-	case "D1":
-	rootKeyName = $("#root").val();
-	makeScale(rootKeyName, 1, 2, 2.5, 3.5, 4.5, 5, 6);
-	break;
-
-	case "Dsharp1":
-	rootKeyName = $("#root").val();
-	makeScale(rootKeyName, 1, 2, 2.5, 3.5, 4.5, 5, 6);
-	break;
-
-	case "E1":
-	rootKeyName = $("#root").val();
-	makeScale(rootKeyName, 1, 2, 2.5, 3.5, 4.5, 5, 6);
-	break;
-
-	case "F1":
-	rootKeyName = $("#root").val();
-	makeScale(rootKeyName, 1, 2, 2.5, 3.5, 4.5, 5, 6);
-	break;
-
-	case "Fsharp1":
-	rootKeyName = $("#root").val();
-	makeScale(rootKeyName, 1, 2, 2.5, 3.5, 4.5, 5, 6);
-	break;
-
-	case "G1":
-	rootKeyName = $("#root").val();
-	makeScale(rootKeyName, 1, 2, 2.5, 3.5, 4.5, 5, 6);
-	break;
-
-	case "Gsharp1":
-	rootKeyName = $("#root").val();
-	makeScale(rootKeyName, 1, 2, 2.5, 3.5, 4.5, 5, 6);
-	break;
-
-	case "A1":
-	rootKeyName = $("#root").val();
-	makeScale(rootKeyName, 1, 2, 2.5, 3.5, 4.5, 5, 6);
-	break;
-
-	case "Asharp1":
-	rootKeyName = $("#root").val();
-	makeScale(rootKeyName, 1, 2, 2.5, 3.5, 4.5, 5, 6);
-	break;
-
-	case "B1":
-	rootKeyName = $("#root").val();
-	makeScale(rootKeyName, 1, 2, 2.5, 3.5, 4.5, 5, 6);
-	break;
-
-	case "C2":
-	rootKeyName = $("#root").val();
-	makeScale(rootKeyName, 1, 2, 2.5, 3.5, 4.5, 5, 6);
-	break;
-
-
-
-	default:
-	console.log("error une the root drop down selection")
-}
-
-}
-
-	/////////////////////////////////////////////////////////////////////////////LOCRIAN SCALE/////////////////////////////////////////////////
-
-	if($("#mode").val() == "locrianScale"){
-
-switch($("#root").val()){
-	case "C1":
-	rootKeyName = $("#root").val();
-	makeScale(rootKeyName, 0.5, 1.5, 2.5, 3, 4, 5, 6);
-	break;
-
-	case "Csharp1":
-	rootKeyName = $("#root").val();
-	makeScale(rootKeyName, 0.5, 1.5, 2.5, 3, 4, 5, 6);
-	break;
-
-	case "D1":
-	rootKeyName = $("#root").val();
-	makeScale(rootKeyName, 0.5, 1.5, 2.5, 3, 4, 5, 6);
-	break;
-
-	case "Dsharp1":
-	rootKeyName = $("#root").val();
-	makeScale(rootKeyName, 0.5, 1.5, 2.5, 3, 4, 5, 6);
-	break;
-
-	case "E1":
-	rootKeyName = $("#root").val();
-	makeScale(rootKeyName, 0.5, 1.5, 2.5, 3, 4, 5, 6);
-	break;
-
-	case "F1":
-	rootKeyName = $("#root").val();
-	makeScale(rootKeyName, 0.5, 1.5, 2.5, 3, 4, 5, 6);
-	break;
-
-	case "Fsharp1":
-	rootKeyName = $("#root").val();
-	makeScale(rootKeyName, 0.5, 1.5, 2.5, 3, 4, 5, 6);
-	break;
-
-	case "G1":
-	rootKeyName = $("#root").val();
-	makeScale(rootKeyName, 0.5, 1.5, 2.5, 3, 4, 5, 6);
-	break;
-
-	case "Gsharp1":
-	rootKeyName = $("#root").val();
-	makeScale(rootKeyName, 0.5, 1.5, 2.5, 3, 4, 5, 6);
-	break;
-
-	case "A1":
-	rootKeyName = $("#root").val();
-	makeScale(rootKeyName, 0.5, 1.5, 2.5, 3, 4, 5, 6);
-	break;
-
-	case "Asharp1":
-	rootKeyName = $("#root").val();
-	makeScale(rootKeyName, 0.5, 1.5, 2.5, 3, 4, 5, 6);
-	break;
-
-	case "B1":
-	rootKeyName = $("#root").val();
-	makeScale(rootKeyName, 0.5, 1.5, 2.5, 3, 4, 5, 6);
-	break;
-
-	case "C2":
-	rootKeyName = $("#root").val();
-	makeScale(rootKeyName, 0.5, 1.5, 2.5, 3, 4, 5, 6);
-	break;
-
-
-
-	default:
-	console.log("error une the root drop down selection")
-}
-
-}
-
-	///////////////////////////////////////////////////////////////////////////end of scales//////////////////////////////////////////////////
-	
-	//in = interval
-	function makeScale(root, int1, int2, int3, int4, int5, int6, int7 ){
-	let rootVal = notesNum[keyNames.indexOf(root)];
-	var scaleList = {
-	note1 : root,
-	note2 : keyNames[notesNum.indexOf(rootVal + int1)],
-	note3 : keyNames[notesNum.indexOf(rootVal + int2)],
-	note4 : keyNames[notesNum.indexOf(rootVal + int3)],
-	note5 : keyNames[notesNum.indexOf(rootVal + int4)],
-	note6 : keyNames[notesNum.indexOf(rootVal + int5)],
-	note7 : keyNames[notesNum.indexOf(rootVal + int6)],
-	note8 : keyNames[notesNum.indexOf(rootVal + int7)],
-	};
-	
-	
-	
-	$("."+scaleList.note1+", ."+scaleList.note8+"").css("background-color", "blue");
-		$("."+scaleList.note2+"").css("background-color", "purple");
-		$("."+scaleList.note3+"").css("background-color", "purple");
-		$("."+scaleList.note4+"").css("background-color", "purple");
-		$("."+scaleList.note5+"").css("background-color", "purple");
-		$("."+scaleList.note6+"").css("background-color", "purple");
-		$("."+scaleList.note7+"").css("background-color", "purple");
-		
-			$(".note-info").empty("")
-			
-			
-	       
-	
-	
-	console.log(scaleList.note1 +" "+ scaleList.note2 +" "+ scaleList.note3 +" "+ scaleList.note4 +" "+ scaleList.note5 +" "+ scaleList.note6 +" "+ scaleList.note7 +" "+ scaleList.note8);
-	}
-	
-	});
-  
-  ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-  
-  
-  
-  
-  
-  
-  
-  
-  
- 
- $(document).on('input', '#volumeRange', function() {
-     $("audio").each(function(){
-		$(this).prop("volume", $("#volumeRange").val());
-	});
- 
-});
-
- 
- 
-// 60 represents middle C 							
-var level1Notes = [60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72]; 
-
-
-if (navigator.requestMIDIAccess) {
-  console.log('WebMIDI is supported in this browser.');
-navigator.requestMIDIAccess( { sysex: true } ).then( onMIDISuccess, onMIDIFailure );
-} else {
-  console.log('WebMIDI is not supported in this browser.');
-}	
-
-
-
-
-
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-
-function onMIDISuccess(midiAccess) {
-  shuffleArray(level1Notes);
-//   drawNote(level1Notes[noteIndex]);
-	
-  var inputs = midiAccess.inputs;
-  var outputs = midiAccess.outputs;
-
-  for (var input of midiAccess.inputs.values()) {
-    input.onmidimessage = getMIDIMessage;
-  }
-}	  
-		
-function onMIDIFailure() {
-    console.log( 'Error: Could not access MIDI devices. Connect a device and refresh to try again.');
-}
-		
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-var noteCounter = 1;
-function getMIDIMessage(message) {
-    noteCounter ++
-    var command = message.data[0];
-    var note = message.data[1];
-    var velocity = message.data[2];
-
-    switch (command) {
-        case 144: // noteOn
-            // document.querySelector('.note-info').textContent = 'Command: ' + command +
-            //     ' , Note: ' + note + ' , Velocity: ' + velocity;
-            // noteOnListener(note);
-            break;
-    }
-    if(noteCounter % 2 == 0){
-        
-    switch(note){
-        case 60:
-        playSelectedNote("C1");
-        break;
-        
-        case 61:
-        playSelectedNote("Csharp1");
-        break;
-        
-        case 62:
-        playSelectedNote("D1");
-        break;
-        
-        case 63:
-        playSelectedNote("Dsharp1");
-        break;
-        
-        case 64:
-        playSelectedNote("E1");
-        break;
-        
-        case 65:
-        playSelectedNote("F1");
-        break;
-        
-        case 66:
-        playSelectedNote("Fsharp1");
-        break;
-        
-        case 67:
-        playSelectedNote("G1");
-        break;
-        
-        case 68:
-        playSelectedNote("Gsharp1");
-        break;
-        
-        case 69:
-        playSelectedNote("A1");
-        break;
-        
-        case 70:
-        playSelectedNote("Asharp1");
-        break;
-        
-        case 71:
-        playSelectedNote("B1");
-        break;
-        
-        case 72:
-        playSelectedNote("C2");
-        break;
-        
-        case 73:
-        playSelectedNote("Csharp2");
-        break;
-        
-        case 74:
-        playSelectedNote("D2");
-        break;
-        
-        case 75:
-        playSelectedNote("Dsharp2");
-        break;
-        
-        case 76:
-        playSelectedNote("E2");
-        break;
-        
-        case 77:
-        playSelectedNote("F2");
-        break;
-        
-        case 78:
-        playSelectedNote("Fsharp2");
-        break;
-        
-        case 79:
-        playSelectedNote("G2");
-        break;
-        
-        case 80:
-        playSelectedNote("Gsharp2");
-        break;
-        
-        case 81:
-        playSelectedNote("A2");
-        break;
-        
-        case 82:
-        playSelectedNote("Asharp2");
-        break;
-        
-        case 83:
-        playSelectedNote("B2");
-        break;
-        
-        case 84:
-        playSelectedNote("C3");
-        break;
-        
-    default:
-        
-    }
-    }
-}	
-
-function playSelectedNote(elementId){
-        document.getElementById(elementId).currentTime = 0;
-        document.getElementById(elementId).play();
-        
-        $('.'+elementId+'').css("border", "4px solid cyan");
-	setTimeout(function(){ $('.'+elementId+'').css("border", "3px solid black") }, 400);
-        
-}
-
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-function getNoteNameFromNumber(noteNum) {
-    var notes = "C C#D D#E F F#G G#A A#B ";
-    var octave;
-    var note;
-
-    octave = Math.floor(noteNum / 12 - 1);
-    note = notes.substring((noteNum % 12) * 2, (noteNum % 12) * 2 + 2);
-
-   return note;
-
-}
-
-
-
-
-
-
-
-
-
-
-function shuffleArray(array) {
-    for (let i = array.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [array[i], array[j]] = [array[j], array[i]];
-    }
-}
-
-//////////////////////////////////////////////////////////////////////////////////end of midi section//////////////////////////////////////////// 
- 
-  
-  
-  var hoveredDiv;
-  var originalColor =[];
-  var notesToSelect = [];
-  
-  $("#chords").change(function(){
-	  if($("#chords").val() == "majorChords"){
-	$("div").hover(function(){
-		if(this.className.split(' ').pop() != hoveredDiv){
-			uncoloringNotes(notesToSelect[0], notesToSelect[1], notesToSelect[2], originalColor[0], originalColor[1], originalColor[2]);
-			
-		}
-		
-		hoveredDiv = this.className.split(' ').pop();
-	
-		
-		switch(hoveredDiv) {
-		case "C1":
-			notesToSelect = [".C1", ".E1", ".G1"];
-			coloringNotes(".C1", ".E1", ".G1", "yellow");
-			$(".C1").click(function(){
-				playChords("C1", "E1", "G1");
-			});
-			break;
-			
-		case "Csharp1":
-		  	notesToSelect = [".Csharp1", ".F1", ".Gsharp1"];
-			coloringNotes(".Csharp1", ".F1", ".Gsharp1", "yellow");
-			$(".Csharp1").click(function(){
-				playChords("Csharp1", "F1", "Gsharp1");
-			});
-			break;
-
-		case "D1":
-		  	notesToSelect = [".D1", ".Fsharp1", ".A1"];
-			coloringNotes(".D1", ".Fsharp1", ".A1", "yellow");
-			$(".D1").click(function(){
-				playChords("D1", "Fsharp1", "A1");
-			});
-			break;
-		  
-		case "Dsharp1":
-		  	notesToSelect = [".Dsharp1", ".G1", ".Asharp1"];
-			coloringNotes(".Dsharp1", ".G1", ".Asharp1", "yellow");
-			$(".Dsharp1").click(function(){
-				playChords("Dsharp1", "G1", "Asharp1");
-			});
-			break;
-
-		case "E1":
-		  	notesToSelect = [".E1", ".Gsharp1", ".B1"];
-			coloringNotes(".E1", ".Gsharp1", ".B1", "yellow");
-			$(".E1").click(function(){
-				playChords("E1", "Gsharp1", "B1");
-			});
-			break;
-
-		case "F1":
-		  	notesToSelect = [".F1", ".A1", ".C2"];
-			coloringNotes(".F1", ".A1", ".C2", "yellow");
-			$(".F1").click(function(){
-				playChords("F1", "A1", "C2");
-			});
-			break;
-
-		case "Fsharp1":
-		  	notesToSelect = [".Fsharp1", ".Asharp1", ".Csharp2"];
-			coloringNotes(".Fsharp1", ".Asharp1", ".Csharp2", "yellow");
-			$(".Fsharp1").click(function(){
-				playChords("Fsharp1", "Asharp1", "Csharp2");
-			});
-			break;
-
-		case "G1":
-		  	notesToSelect = [".G1", ".B1", ".D2"];
-			coloringNotes(".G1", ".B1", ".D2", "yellow");
-			$(".G1").click(function(){
-				playChords("G1", "B1", "D2");
-			});
-			break;
-
-		case "Gsharp1":
-		  	notesToSelect = [".Gsharp1", ".C2", ".Dsharp2"];
-			coloringNotes(".Gsharp1", ".C2", ".Dsharp2", "yellow");
-			$(".Gsharp1").click(function(){
-				playChords("Gsharp1", "C2", "Dsharp2");
-			});
-			break;
-
-		case "A1":
-		  	notesToSelect = [".A1", ".Csharp2", ".E2"];
-			coloringNotes(".A1", ".Csharp2", ".E2", "yellow");
-			$(".A1").click(function(){
-				playChords("A1", "Csharp2", "E2");
-			});
-			break;
-
-		case "Asharp1":
-		  	notesToSelect = [".Asharp1", ".D2", ".F2"];
-			coloringNotes(".Asharp1", ".D2", ".F2", "yellow");
-			$(".Asharp1").click(function(){
-				playChords("Asharp1", "D2", "F2");
-			});
-			break;
-
-		case "B1":
-		  	notesToSelect = [".B1", ".Dsharp2", ".Fsharp2"];
-			coloringNotes(".B1", ".Dsharp2", ".Fsharp2", "yellow");
-			$(".B1").click(function(){
-				playChords("B1", "Dsharp2", "Fsharp2");
-			});
-			break;
-
-			/* ------------------------------------------------------------------------------second section ---------------------------------*/
-
-		case "C2":
-			notesToSelect = [".C2", ".E2", ".G2"];
-			coloringNotes(".C2", ".E2", ".G2", "yellow");
-			$(".C2").click(function(){
-				playChords("C2", "E2", "G2");
-			});
-			break;
-			
-		case "Csharp2":
-		  	notesToSelect = [".Csharp2", ".F2", ".Gsharp2"];
-			coloringNotes(".Csharp2", ".F2", ".Gsharp2", "yellow");
-			$(".Csharp2").click(function(){
-				playChords("Csharp2", "F2", "Gsharp2");
-			});
-			break;
-
-		case "D2":
-		  	notesToSelect = [".D2", ".Fsharp2", ".A2"];
-			coloringNotes(".D2", ".Fsharp2", ".A2", "yellow");
-			$(".D2").click(function(){
-				playChords("D2", "Fsharp2", "A2");
-			});
-			break;
-		  
-		case "Dsharp2":
-		  	notesToSelect = [".Dsharp2", ".G2", ".Asharp2"];
-			coloringNotes(".Dsharp2", ".G2", ".Asharp2", "yellow");
-			$(".Dsharp2").click(function(){
-				playChords("Dsharp2", "G2", "Asharp2");
-			});
-			break;
-
-		case "E2":
-		  	notesToSelect = [".E2", ".Gsharp2", ".B2"];
-			coloringNotes(".E2", ".Gsharp2", ".B2", "yellow");
-			$(".E2").click(function(){
-				playChords("E2", "Gsharp2", "B2");
-			});
-			break;
-
-		case "F2":
-		  	notesToSelect = [".F2", ".A2", ".C3"];
-			coloringNotes(".F2", ".A2", ".C3", "yellow");
-			$(".F2").click(function(){
-				playChords("F2", "A2", "C3");
-			});
-			break;
-
-		case "Fsharp2":
-		  	notesToSelect = [".Fsharp2", ".Asharp2", ".Csharp3"];
-			coloringNotes(".Fsharp2", ".Asharp2", ".Csharp3", "yellow");
-			$(".Fsharp2").click(function(){
-				playChords("Fsharp2", "Asharp2", "Csharp3");
-			});
-			break;
-
-		case "G2":
-		  	notesToSelect = [".G2", ".B2", ".D3"];
-			coloringNotes(".G2", ".B2", ".D3", "yellow");
-			$(".G2").click(function(){
-				playChords("G2", "B2", "D3");
-			});
-			break;
-
-		case "Gsharp2":
-		  	notesToSelect = [".Gsharp2", ".C3", ".Dsharp3"];
-			coloringNotes(".Gsharp2", ".C3", ".Dsharp3", "yellow");
-			$(".Gsharp2").click(function(){
-				playChords(".Gsharp2", ".C3", ".Dsharp3");
-			});
-			break;
-
-		case "A2":
-		  	notesToSelect = [".A2", ".Csharp3", ".E3"];
-			coloringNotes(".A2", ".Csharp3", ".E3", "yellow");
-			$(".A2").click(function(){
-				playChords("A2", "Csharp3", "E3");
-			});
-			break;
-
-		case "Asharp2":
-		  	notesToSelect = [".Asharp2", ".D3", ".F3"];
-			coloringNotes(".Asharp2", ".D3", ".F3", "yellow");
-			$(".Asharp2").click(function(){
-				playChords("Asharp2", "D3", "F3");
-			});
-			break;
-
-		case "B2":
-		  	notesToSelect = [".B2", ".Dsharp3", ".Fsharp3"];
-			coloringNotes(".B2", ".Dsharp3", ".Fsharp3", "yellow");
-			$(".B2").click(function(){
-				playChords("B2", "Dsharp3", "Fsharp3");
-			});
-			break;
-
-
-		  default:
-			// code block
-		} 
-
-		
-		
-		
-		function coloringNotes(note1, note2, note3, notesColor){
-			originalColor.push($(note1).css("background-color"));
-			originalColor.push($(note2).css("background-color"));
-			originalColor.push($(note3).css("background-color"));
-
-			$(note1).css("background-color", notesColor);
-			$(note2).css("background-color", notesColor);
-			$(note3).css("background-color", notesColor);
-			
-		}
-		
-		function uncoloringNotes(note1, note2, note3, notesColor1, notesColor2, notesColor3){
-			$(note1).css("background-color", notesColor1);
-			$(note2).css("background-color", notesColor2);
-			$(note3).css("background-color", notesColor3);
-			originalColor = [];
-		}
-		
-		
-		function playChords(note1, note2, note3){
-			document.getElementById(note1).currentTime = 0;
-			document.getElementById(note2).currentTime = 0;
-			document.getElementById(note3).currentTime = 0;
-			
-			document.getElementById(note1).play();
-			document.getElementById(note2).play();
-			document.getElementById(note3).play();
-		}
-	});
-}
-
-
-
-if($("#chords").val() == "minorChords"){
-	$("div").hover(function(){
-		if(this.className.split(' ').pop() != hoveredDiv){
-			uncoloringNotes(notesToSelect[0], notesToSelect[1], notesToSelect[2], originalColor[0], originalColor[1], originalColor[2]);
-			
-		}
-		
-		hoveredDiv = this.className.split(' ').pop();
-	
-		
-		switch(hoveredDiv) {
-		case "C1":
-			notesToSelect = [".C1", ".Dsharp1", ".G1"];
-			coloringNotes(".C1", ".Dsharp1", ".G1", "yellow");
-			$(".C1").click(function(){
-				playChords("C1", "Dsharp1", "G1");
-			});
-			break;
-			
-		case "Csharp1":
-		  	notesToSelect = [".Csharp1", ".E1", ".Gsharp1"];
-			coloringNotes(".Csharp1", ".E1", ".Gsharp1", "yellow");
-			$(".Csharp1").click(function(){
-				playChords("Csharp1", "E1", "Gsharp1");
-			});
-			break;
-
-		case "D1":
-		  	notesToSelect = [".D1", ".F1", ".A1"];
-			coloringNotes(".D1", ".F1", ".A1", "yellow");
-			$(".D1").click(function(){
-				playChords("D1", "F1", "A1");
-			});
-			break;
-		  
-		case "Dsharp1":
-		  	notesToSelect = [".Dsharp1", ".Fsharp1", ".Asharp1"];
-			coloringNotes(".Dsharp1", ".Fsharp1", ".Asharp1", "yellow");
-			$(".Dsharp1").click(function(){
-				playChords("Dsharp1", "Fsharp1", "Asharp1");
-			});
-			break;
-
-		case "E1":
-		  	notesToSelect = [".E1", ".G1", ".B1"];
-			coloringNotes(".E1", ".G1", ".B1", "yellow");
-			$(".E1").click(function(){
-				playChords("E1", "G1", "B1");
-			});
-			break;
-
-		case "F1":
-		  	notesToSelect = [".F1", ".Gsharp1", ".C2"];
-			coloringNotes(".F1", ".Gsharp1", ".C2", "yellow");
-			$(".F1").click(function(){
-				playChords("F1", "Gsharp1", "C2");
-			});
-			break;
-
-		case "Fsharp1":
-		  	notesToSelect = [".Fsharp1", ".A1", ".Csharp2"];
-			coloringNotes(".Fsharp1", ".A1", ".Csharp2", "yellow");
-			$(".Fsharp1").click(function(){
-				playChords("Fsharp1", "A1", "Csharp2");
-			});
-			break;
-
-		case "G1":
-		  	notesToSelect = [".G1", ".Asharp1", ".D2"];
-			coloringNotes(".G1", ".Asharp1", ".D2", "yellow");
-			$(".G1").click(function(){
-				playChords("G1", "Asharp1", "D2");
-			});
-			break;
-
-		case "Gsharp1":
-		  	notesToSelect = [".Gsharp1", ".B1", ".Dsharp2"];
-			coloringNotes(".Gsharp1", ".B1", ".Dsharp2", "yellow");
-			$(".Gsharp1").click(function(){
-				playChords("Gsharp1", "B1", "Dsharp2");
-			});
-			break;
-
-		case "A1":
-		  	notesToSelect = [".A1", ".C2", ".E2"];
-			coloringNotes(".A1", ".C2", ".E2", "yellow");
-			$(".A1").click(function(){
-				playChords("A1", "C2", "E2");
-			});
-			break;
-
-		case "Asharp1":
-		  	notesToSelect = [".Asharp1", ".Csharp2", ".F2"];
-			coloringNotes(".Asharp1", ".Csharp2", ".F2", "yellow");
-			$(".Asharp1").click(function(){
-				playChords("Asharp1", "Csharp2", "F2");
-			});
-			break;
-
-		case "B1":
-		  	notesToSelect = [".B1", ".D2", ".Fsharp2"];
-			coloringNotes(".B1", ".D2", ".Fsharp2", "yellow");
-			$(".B1").click(function(){
-				playChords("B1", "D2", "Fsharp2");
-			});
-			break;
-
-			/* ------------------------------------------------------------------------------second section ---------------------------------*/
-
-		case "C2":
-			notesToSelect = [".C2", ".Dsharp2", ".G2"];
-			coloringNotes(".C2", ".Dsharp2", ".G2", "yellow");
-			$(".C2").click(function(){
-				playChords("C2", "Dsharp2", "G2");
-			});
-			break;
-			
-		case "Csharp2":
-		  	notesToSelect = [".Csharp2", ".E2", ".Gsharp2"];
-			coloringNotes(".Csharp2", ".E2", ".Gsharp2", "yellow");
-			$(".Csharp2").click(function(){
-				playChords("Csharp2", "E2", "Gsharp2");
-			});
-			break;
-
-		case "D2":
-		  	notesToSelect = [".D2", ".F2", ".A2"];
-			coloringNotes(".D2", ".F2", ".A2", "yellow");
-			$(".D2").click(function(){
-				playChords("D2", "F2", "A2");
-			});
-			break;
-		  
-		case "Dsharp2":
-		  	notesToSelect = [".Dsharp2", ".Fsharp2", ".Asharp2"];
-			coloringNotes(".Dsharp2", ".Fsharp2", ".Asharp2", "yellow");
-			$(".Dsharp2").click(function(){
-				playChords("Dsharp2", "Fsharp2", "Asharp2");
-			});
-			break;
-
-		case "E2":
-		  	notesToSelect = [".E2", ".G2", ".B2"];
-			coloringNotes(".E2", ".G2", ".B2", "yellow");
-			$(".E2").click(function(){
-				playChords("E2", "G2", "B2");
-			});
-			break;
-
-		case "F2":
-		  	notesToSelect = [".F2", ".Gsharp2", ".C3"];
-			coloringNotes(".F2", ".Gsharp2", ".C3", "yellow");
-			$(".F2").click(function(){
-				playChords("F2", "Gsharp2", "C3");
-			});
-			break;
-
-		case "Fsharp2":
-		  	notesToSelect = [".Fsharp2", ".A2", ".Csharp3"];
-			coloringNotes(".Fsharp2", ".A2", ".Csharp3", "yellow");
-			$(".Fsharp2").click(function(){
-				playChords("Fsharp2", "A2", "Csharp3");
-			});
-			break;
-
-		case "G2":
-		  	notesToSelect = [".G2", ".Asharp2", ".D3"];
-			coloringNotes(".G2", ".Asharp2", ".D3", "yellow");
-			$(".G2").click(function(){
-				playChords("G2", "Asharp2", "D3");
-			});
-			break;
-
-		case "Gsharp2":
-		  	notesToSelect = [".Gsharp2", ".B2", ".Dsharp3"];
-			coloringNotes(".Gsharp2", ".B2", ".Dsharp3", "yellow");
-			$(".Gsharp2").click(function(){
-				playChords("Gsharp2", "B2", "Dsharp3");
-			});
-			break;
-
-		case "A2":
-		  	notesToSelect = [".A2", ".C3", ".E3"];
-			coloringNotes(".A2", ".C3", ".E3", "yellow");
-			$(".A2").click(function(){
-				playChords("A2", "C3", "E3");
-			});
-			break;
-
-		case "Asharp2":
-		  	notesToSelect = [".Asharp2", ".Csharp3", ".F3"];
-			coloringNotes(".Asharp2", ".Csharp3", ".F3", "yellow");
-			$(".Asharp2").click(function(){
-				playChords("Asharp2", "Csharp3", "F3");
-			});
-			break;
-
-		case "B2":
-		  	notesToSelect = [".B2", ".D3", ".Fsharp3"];
-			coloringNotes(".B2", ".D3", ".Fsharp3", "yellow");
-			$(".B2").click(function(){
-				playChords("B2", "D3", "Fsharp3");
-			});
-			break;
-
-
-		  default:
-			// code block
-		} 
-
-		
-		
-		
-		function coloringNotes(note1, note2, note3, notesColor){
-			originalColor.push($(note1).css("background-color"));
-			originalColor.push($(note2).css("background-color"));
-			originalColor.push($(note3).css("background-color"));
-
-			$(note1).css("background-color", notesColor);
-			$(note2).css("background-color", notesColor);
-			$(note3).css("background-color", notesColor);
-			
-		}
-		
-		function uncoloringNotes(note1, note2, note3, notesColor1, notesColor2, notesColor3){
-			$(note1).css("background-color", notesColor1);
-			$(note2).css("background-color", notesColor2);
-			$(note3).css("background-color", notesColor3);
-			originalColor = [];
-		}
-		
-		
-		function playChords(note1, note2, note3){
-			document.getElementById(note1).currentTime = 0;
-			document.getElementById(note2).currentTime = 0;
-			document.getElementById(note3).currentTime = 0;
-			
-			document.getElementById(note1).play();
-			document.getElementById(note2).play();
-			document.getElementById(note3).play();
-		}
-	});
-}
-
-
-
-
-
-});
-  
-  
-  
-  
-  
-  
-  
-  
-  $("div").click(function() {
-   var myClass = $(this).attr('class').split(' ').pop();
-   document.getElementById(""+myClass+"").currentTime = 0;
-   document.getElementById(""+myClass+"").play();
+  text-shadow: 0px 0px 6px #48DBFB;
+
+  /* Center and scale the image nicely */
+  background-position: top-25%;
+  background-repeat: no-repeat;
+  background-size: cover;
    
-   	
-	
-	$('.'+myClass+'').css("border", "4px solid cyan");
-	setTimeout(function(){ $('.'+myClass+'').css("border", "3px solid black") }, 400);
-});
+     color : #FF9F43;
+  }
   
 
+	</style>
+	
+	<div class="container-fluid m-0 pt-5" id="subContainer" style="background-color: #2d3436; background-image: linear-gradient(180deg, #2d3436 0%, #d3d3d3 74%); height: 75vh; color: #48DBFB;">
+        <label style="font-size: 1rem; backdrop-filter: blur(20px) brightness(120%); padding: 1%; border-radius: 12px;">Mode :</label>
+        <select id="mode">
+            <option value=""></option>
+            <option value="majorScale">Major Scale (Ionian)</option>
+            <option value="minorScale">Natural Minor Scale (Aeolian)</option>
+            <option value="dorianScale">Dorian scale</option>
+            <option value="phrygianScale">Phrygian scale</option>
+            <option value="lydianScale">Lydian scale</option>
+            <option value="mixolydianScale">Mixolydian scale</option>
+            <option value="locrianScale">Locrian scale</option>
+        </select>
 
-  
-  
-$( document ).ready(function() {
+        <br />
 
-	var index=0;
-	var state="forward";
+        <label style="font-size: 1rem; backdrop-filter: blur(20px) brightness(120%); padding: 1%; border-radius: 12px;">root :</label>
+        <select id="root">
+            <option value=""></option>
+            <option value="C1">C1</option>
+            <option value="Csharp1">C#1</option>
+            <option value="D1">D1</option>
+            <option value="Dsharp1">D#1</option>
+            <option value="E1">E1</option>
+            <option value="F1">F1</option>
+            <option value="Fsharp1">F#1</option>
+            <option value="G1">G1</option>
+            <option value="Gsharp1">G#1</option>
+            <option value="A1">A1</option>
+            <option value="Asharp1">A#1</option>
+            <option value="B1">B1</option>
+            <option value="C2">C2</option>
+        </select>
 
-$("button").click(function(){
+        <br />
 
-	index=0;
-	state="forward";
-
-	$(this).toggleClass('selected');
-	
-	
-	
-	switch($("#scales").val()) {
-	case "cMajor":
-	autoPlay("C1", "D1", "E1", "F1", "G1", "A1", "B1", "C2",  index);
-
-    break;
-	
-	case "dMajor":
-	
-	autoPlay("D1", "E1", "Fsharp1", "G1", "A1", "B1", "Csharp2", "D2",  index);
-	break;
-	
-	case "eMajor":
-	autoPlay("E1", "Fsharp1", "Gsharp1", "A1", "B1", "Csharp2", "Dsharp2", "E2",  index);
-	break;
-	
-	case "fMajor":
-	autoPlay("F1", "G1", "A1", "Asharp1", "C2", "D2", "E2", "F2",  index);
-	break;
-	
-	case "gMajor":
-		autoPlay("G1", "A1", "B1", "C2", "D2", "E2", "Fsharp2", "G2",  index);
-	break;
-	
-	
-	case "aMajor":
-		autoPlay("A1", "B1", "Csharp2", "D2", "E2", "Fsharp2", "Gsharp2", "A2",  index);
-
-	break;
-	
-	case "bMajor":
-	    autoPlay("B1", "Csharp2", "Dsharp2", "E2", "Fsharp2", "Gsharp2", "Asharp2", "B2",  index);
-	break;
-	
-	case "c#Major":
-	    autoPlay("Csharp1", "Dsharp1", "F1", "Fsharp1", "Gsharp1", "Asharp1", "C2", "Csharp2",  index);
-	break;
-	
-	case "d#Major":
-	    autoPlay("Dsharp1", "F1", "G1", "Gsharp1", "Asharp1", "C2", "D2", "Dsharp2",  index);
-	break;
-	
-	case "f#Major":
-	     autoPlay("Fsharp1", "Gsharp1", "Asharp1", "B1", "Csharp2", "Dsharp2", "F2", "Fsharp2",  index);
-	break;
-	
-	case "g#Major":
-	    autoPlay("Gsharp1", "Asharp1", "C2", "Csharp2", "Dsharp2", "F2", "G2", "Gsharp2",  index);
-	break;
-	
-	case "a#Major":
-	    autoPlay("Asharp1", "C2", "D2", "Dsharp2", "F2", "G2", "A2", "Asharp2",  index);
-	break;
-	
-	
-	/*----------------------------------------- minors ------------------------------------*/ 
-	
-	case "aMinor":
-	autoPlay("A1", "B1", "C2", "D2", "E2", "F2", "G2", "A2",  index);
-	break;
-	
-	case "a#Minor":
-	autoPlay("Asharp1", "C2", "Csharp2", "Dsharp2", "F2", "Fsharp2", "Gsharp2", "Asharp2",  index);
-	break;
-	
-	case "bMinor":
-	autoPlay("B1", "Csharp2", "D2", "E2", "Fsharp2", "G2", "A2", "B2",  index);
-	break;
-	
-	case "cMinor":
-	autoPlay("C1", "D1", "Dsharp1", "F1", "G1", "Gsharp1", "Asharp1", "C2",  index);
-	break;
-	
-	case "c#Minor":
-	autoPlay("Csharp1", "Dsharp1", "E1", "Fsharp1", "Gsharp1", "A1", "B1", "Csharp2",  index);
-	break;
-	
-	case "dMinor":
-	autoPlay("D1", "E1", "F1", "G1", "A1", "Asharp1", "C2", "D2",  index);
-	break;
-	
-	case "d#Minor":
-	autoPlay("Dsharp1", "F1", "Fsharp1", "Gsharp1", "Asharp1", "B1", "Csharp2", "Dsharp2",  index);
-	break;
-	
-	case "eMinor":
-	autoPlay("E1", "Fsharp1", "G1", "A1", "B1", "C2", "D2", "E2",  index);
-	break;
-	
-	case "fMinor":
-	autoPlay("F1", "G1", "Gsharp1", "Asharp1", "C2", "Csharp2", "Dsharp2", "F2",  index);
-	break;
-	
-	case "f#Minor":
-	autoPlay("Fsharp1", "Gsharp1", "A1", "B1", "Csharp2", "D2", "E2", "Fsharp2",  index);
-	break;
-	
-	case "gMinor":
-	autoPlay("G1", "A1", "Asharp1", "C2", "D2", "Dsharp2", "F2", "G2",  index);
-	break;
-	
-	case "g#Minor":
-	autoPlay("Gsharp1", "Asharp1", "B1", "Csharp2", "Dsharp2", "E2", "Fsharp2", "Gsharp2",  index);
-	break;
-	
-  
-  default:
-    // code block
-} 
-	
-	
-
-	
-	 function autoPlay(note1, note2, note3, note4, note5, note6, note7,note8, index ){
-	let notes = [note1, note2, note3, note4, note5, note6, note7, note8]
-	
-	document.getElementById(notes[index]).currentTime = 0;
-	document.getElementById(notes[index]).play();
-	console.log(index + "shit");
-	
-	if(index < 8 && state == "forward"){
-		index++
-	}
-	if(index >= 8 || state == "backward"){
-	index--
-	state = "backward";
-	}
-
-	
-	
-	
-	//$('.'+note+'').css("border", "2px solid blue");
-	//setTimeout(function(){ $('.'+note+'').css("border", "3px solid black") }, 400);
-	
-	setTimeout( function(){autoPlay(note1, note2, note3, note4, note5, note6, note7,note8, index)}, 350);
-	
+        <label style="font-size: 1rem; backdrop-filter: blur(20px) brightness(120%); padding: 1%; border-radius: 12px;">Chords mode</label>
+        <select id="chords">
+            <option value=""></option>
+            <option value="majorChords">Major Chords Mode</option>
+            <option value="minorChords">Minor Chords Mode</option>
+        </select>
 		
-	
- }
-});
 
-$(document).on( "keydown", function( event ) {
- var keycode = (event.key ? event.key : event.which);
- switch(keycode){
-	case "q":
-		playNote("C1");
-	break;
-	
-	case "2":
-		playNote("Csharp1");
-	break;
-	
-	case "w":
-		playNote("D1");
-	break;
-	
-	case "3":
-		playNote("Dsharp1");
-	break;
-	
-	case "e":
-		playNote("E1");
-	break;
-	
-	case "r":
-		playNote("F1");
-	break;
-	
-	case "5":
-		playNote("Fsharp1");
-	break;
-	
-	case "t":
-		playNote("G1");
-	break;
-	
-	case "6":
-		playNote("Gsharp1");
-	break;
-	
-		case "y":
-		playNote("A1");
-	break;
-	
-		case "7":
-		playNote("Asharp1");
-	break;
-	
-		case "u":
-		playNote("B1");
-	break;
-	
-		case "i":
-		playNote("C2");
-	break;
-	
-		case "9":
-		playNote("Csharp2");
-	break;
-	
-		case "o":
-		playNote("D2");
-	break;
-	
-	case "0":
-		playNote("Dsharp2");
-	break;
-	
-	case "p":
-		playNote("E2");
-	break;
-	
-	case "^^":
-		playNote("F2");
-	break;
-	
-	case "=":
-		playNote("Fsharp2");
-	break;
-	
-	case "z":
-		playNote("G2");
-	break;
-	
-	//////////////////////
-	
-	case "s":
-		playNote("Gsharp2");
-	break;
-	
-	case "x":
-		playNote("A2");
-	break;
-	
-	case "d":
-		playNote("Asharp2");
-	break;
-	
-	case "c":
-		playNote("B2");
-	break;
-	
-	case "v":
-		playNote("C3");
-	break;
-	
-	
-	
-	
- }
+        
+            <label for="points" style="font-size: 1rem; backdrop-filter: blur(20px) brightness(120%); padding: 1%; border-radius: 12px;">Volume :</label>
+            <input type="range" class="" id="volumeRange" name="volumeRange" min="0" max="1" step="0.1" />
 
- 
- function playNote(note){
-	document.getElementById(note).currentTime = 0
-	document.getElementById(note).play();
-	$('.'+note+'').css("border", "4px solid cyan");
-	setTimeout(function(){ $('.'+note+'').css("border", "3px solid black") }, 400);
- }
-});
+			
+			<style>
+input[type=range] {
+  -webkit-appearance: none;
+  margin: 18px 0;
+  width: 10%;
+}
+input[type=range]:focus {
+  outline: none;
+}
+input[type=range]::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 8.4px;
+  cursor: pointer;
+  animate: 0.2s;
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+  background: #48DBFB;
+  border-radius: 1.3px;
+  border: 0.2px solid #010101;
+}
+input[type=range]::-webkit-slider-thumb {
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+  border: 1px solid #48DBFB;
+  height: 36px;
+  width: 16px;
+  border-radius: 3px;
+  background: #FF9F43;
+  cursor: pointer;
+  -webkit-appearance: none;
+  margin-top: -14px;
+}
+input[type=range]:focus::-webkit-slider-runnable-track {
+  background: #48DBFB;
+}
+input[type=range]::-moz-range-track {
+  width: 100%;
+  height: 8.4px;
+  cursor: pointer;
+  animate: 0.2s;
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+  background: #48DBFB;
+  border-radius: 1.3px;
+  border: 0.2px solid #010101;
+}
+input[type=range]::-moz-range-thumb {
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+  border: 1px solid #48DBFB;
+  height: 36px;
+  width: 16px;
+  border-radius: 3px;
+  background: #FF9F43;
+  cursor: pointer;
+}
+input[type=range]::-ms-track {
+  width: 100%;
+  height: 8.4px;
+  cursor: pointer;
+  animate: 0.2s;
+  background: transparent;
+  border-color: transparent;
+  border-width: 16px 0;
+  color: transparent;
+}
+input[type=range]::-ms-fill-lower {
+  background: #2a6495;
+  border: 0.2px solid #010101;
+  border-radius: 2.6px;
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+}
+input[type=range]::-ms-fill-upper {
+  background: #3071a9;
+  border: 0.2px solid #010101;
+  border-radius: 2.6px;
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+}
+input[type=range]::-ms-thumb {
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+  border: 1px solid #000000;
+  height: 36px;
+  width: 16px;
+  border-radius: 3px;
+  background: #ffffff;
+  cursor: pointer;
+}
+input[type=range]:focus::-ms-fill-lower {
+  background: #3071a9;
+}
+input[type=range]:focus::-ms-fill-upper {
+  background: #367ebd;
+}
+			</style>
+           
 
+            <button class="btn btn-primary" style="">play scale</button>
+			
+			<label style="font-size: 1rem; backdrop-filter: blur(20px) brightness(120%); padding: 1%; border-radius: 12px;">bpm</label>
+			<input id="bpm" type="text" value="30">
+			<a id="playMetronome" class="btn btn-primary">start metronome</a>
+			<a id="stopMetronome" class="btn btn-primary">start metronome</a>
+			<audio id="metronomeSound" src="https://www.magame.ca/piano/metronome/toc.wav"></audio>
+			<audio id="metronomeTick" src="https://www.magame.ca/piano/metronome/tick.wav"></audio>
+			
+			<div id="mainBody" class="row p-0 m-0" style="max-width: 100vw;">
+			
+            <div id="keyboard">
+                <div class="key white c C1" data-note="C3" style="text-align: center; color: white;">C</div>
+                <div class="key black c_sharp Csharp1" data-note="C#3" style="text-align: center; color: white;">C#</div>
+                <div class="key white d D1" data-note="D3" style="text-align: center; color: white;">D</div>
+                <div class="key black d_sharp Dsharp1" data-note="D#3" style="text-align: center; color: white;">D#</div>
+                <div class="key white e E1" data-note="E3" style="text-align: center; color: white;">E</div>
+                <div class="key white f F1" data-note="F3" style="text-align: center; color: white;">F</div>
+                <div class="key black f_sharp Fsharp1" data-note="F#3" style="text-align: center; color: white;">F#</div>
+                <div class="key white g G1" data-note="G3" style="text-align: center; color: white;">G</div>
+                <div class="key black g_sharp Gsharp1" data-note="G#3" style="text-align: center; color: white;">G#</div>
+                <div class="key white a A1" data-note="A3" style="text-align: center; color: white;">A</div>
+                <div class="key black a_sharp Asharp1" data-note="A#3" style="text-align: center; color: white;">A#</div>
+                <div class="key white b B1" data-note="B3" style="text-align: center; color: white;">B</div>
+                <div class="key white c C2" data-note="C4" style="text-align: center; color: white;">C</div>
+                <div class="key black c_sharp Csharp2" data-note="C#4" style="text-align: center; color: white;">C#</div>
+                <div class="key white d D2" data-note="D4" style="text-align: center; color: white;">D</div>
+                <div class="key black d_sharp Dsharp2" data-note="D#4" style="text-align: center; color: white;">D#</div>
+                <div class="key white e E2" data-note="E4" style="text-align: center; color: white;">E</div>
+                <div class="key white f F2" data-note="F4" style="text-align: center; color: white;">F</div>
+                <div class="key black f_sharp Fsharp2" data-note="F#4" style="text-align: center; color: white;">F#</div>
+                <div class="key white g G2" data-note="G4" style="text-align: center; color: white;">G</div>
+                <div class="key black g_sharp Gsharp2" data-note="G#4" style="text-align: center; color: white;">G#</div>
+                <div class="key white a A2" data-note="A4" style="text-align: center; color: white;">A</div>
+                <div class="key black a_sharp Asharp2" data-note="A#4" style="text-align: center; color: white;">A#</div>
+                <div class="key white b B2" data-note="B4" style="text-align: center; color: white;">B</div>
+                <div class="key white c C3" data-note="C5" style="text-align: center; color: white;">C</div>
+            </div>
+        </div>
+        <style>
+            #mainBody {
+                height: 100%;
+                display: flex;
+                justify-content: center;
+            }
 
-	$("#scales").change(function(){
-	
-	
-	$(".C1").css("background-color", "#cbcbcb");
-	$(".Csharp1").css("background-color", "#000");
-	$(".D1").css("background-color", "#cbcbcb");
-	$(".Dsharp1").css("background-color", "#000");
-	$(".E1").css("background-color", "#cbcbcb");
-	$(".F1").css("background-color", "#cbcbcb");
-	$(".Fsharp1").css("background-color", "#000");
-	$(".G1").css("background-color", "#cbcbcb");
-	$(".Gsharp1").css("background-color", "#000");
-	$(".A1").css("background-color", "#cbcbcb");
-	$(".Asharp1").css("background-color", "#000");
-	$(".B1").css("background-color", "#cbcbcb");
-	
-	$(".C2").css("background-color", "#cbcbcb");
-	$(".Csharp2").css("background-color", "#000");
-	$(".D2").css("background-color", "#cbcbcb");
-	$(".Dsharp2").css("background-color", "#000");
-	$(".E2").css("background-color", "#cbcbcb");
-	$(".F2").css("background-color", "#cbcbcb");
-	$(".Fsharp2").css("background-color", "#000");
-	$(".G2").css("background-color", "#cbcbcb");
-	$(".Gsharp2").css("background-color", "#000");
-	$(".A2").css("background-color", "#cbcbcb");
-	$(".Asharp2").css("background-color", "#000");
-	$(".B2").css("background-color", "#cbcbcb");
-	$(".C3").css("background-color", "#cbcbcb");
-	
-	
+            /*#body {
+                height: 100%;
+                display: -webkit-box;
+                display: flex;
+                margin: auto;
+                -webkit-box-pack: center;
+                justify-content: center;
+                -webkit-box-align: center;
+                align-items: center;
+                background-color: #111;
+            }*/
+
+            .key {
+                float: left;
+                position: relative;
+            }
+
+            .white {
+                height: 14.4vw;
+                //width: 3.8095238095vw;
+                width: 5.71428571425vw;
+                z-index: 1;
+                border: 3px solid black;
+                background-color: #cbcbcb;
+            }
+
+            .black {
+                height: 7.92vw;
+                width: 2.0952380952vw;
+                z-index: 2;
+                border: 3px solid black;
+                background-color: #222222;
+            }
+
+            .a,
+            .b,
+            .d,
+            .e,
+            .g,
+            .black {
+                margin: 0 0 0 -1.1676190476vw;
+            }
+
+            #keyboard > .note:last-child {
+                border-right: 0.12vw solid #aaaaaa;
+            }
+        </style>
+
+        <section id="wrap">
+            <section id="main">
+                <audio id="C1" data-key="81" src="https://www.magame.ca/piano/261-C.mp3"></audio>
+                <audio id="Csharp1" data-key="50" src="https://www.magame.ca/piano/277-C-sharp.mp3"></audio>
+                <audio id="D1" data-key="87" src="https://www.magame.ca/piano/293-D.mp3"></audio>
+                <audio id="Dsharp1" data-key="51" src="https://www.magame.ca/piano/311-D-sharp.mp3"></audio>
+                <audio id="E1" data-key="69" src="https://www.magame.ca/piano/329-E.mp3"></audio>
+                <audio id="F1" data-key="82" src="https://www.magame.ca/piano/349-F.mp3"></audio>
+                <audio id="Fsharp1" data-key="53" src="https://www.magame.ca/piano/369F-sharp.mp3"></audio>
+                <audio id="G1" data-key="84" src="https://www.magame.ca/piano/391-G.mp3"></audio>
+                <audio id="Gsharp1" data-key="54" src="https://www.magame.ca/piano/415-G-sharp.mp3"></audio>
+                <audio id="A1" data-key="89" src="https://www.magame.ca/piano/440-A.mp3"></audio>
+                <audio id="Asharp1" data-key="55" src="https://www.magame.ca/piano/466-A-sharp.mp3"></audio>
+                <audio id="B1" data-key="85" src="https://www.magame.ca/piano/495-B.mp3"></audio>
+                <audio id="C2" data-key="73" src="https://www.magame.ca/piano/523-C.mp3"></audio>
+                <audio id="Csharp2" data-key="57" src="https://www.magame.ca/piano/545-C-sharp.mp3"></audio>
+                <audio id="D2" data-key="79" src="https://www.magame.ca/piano/587-D.mp3"></audio>
+                <audio id="Dsharp2" data-key="48" src="https://www.magame.ca/piano/622-D-sharp.mp3"></audio>
+                <audio id="E2" data-key="80" src="https://www.magame.ca/piano/659-E.mp3"></audio>
+
+                <audio id="F2" data-key="226" src="https://www.magame.ca/piano/698-F.mp3"></audio>
+                <audio id="Fsharp2" data-key="65" src="https://www.magame.ca/piano/698-F-sharp.mp3"></audio>
+                <audio id="G2" data-key="90" src="https://www.magame.ca/piano/783-G.mp3"></audio>
+                <audio id="Gsharp2" data-key="83" src="https://www.magame.ca/piano/830-G-sharp.mp3"></audio>
+                <audio id="A2" data-key="88" src="https://www.magame.ca/piano/880-A.mp3"></audio>
+                <audio id="Asharp2" data-key="68" src="https://www.magame.ca/piano/932-A-sharp.mp3"></audio>
+                <audio id="B2" data-key="67" src="https://www.magame.ca/piano/987-B.mp3"></audio>
+                <audio id="C3" data-key="86" src="https://www.magame.ca/piano/1046-C.mp3"></audio>
+            </section>
+        </section>
+
+        <p class="note-info"></p>
 		
-	
-	
-	switch($("#scales").val()) {
-	/*case "cMajor":
-		$(".C1, .C2").css("background-color", "blue");
-		$(".D1").css("background-color", "purple");
-		$(".E1").css("background-color", "purple");
-		$(".F1").css("background-color", "purple");
-		$(".G1").css("background-color", "purple");
-		$(".A1").css("background-color", "purple");
-		$(".B1").css("background-color", "purple");
-		
-			$(".note-info").empty("")
-	        $(".note-info").append("Fingerings (LH): 5, 4, 3, 2, 1, 3, 2, 1 <br> Fingerings (RH): 1, 2, 3, 1, 2, 3, 4, 5")
-		
-    break;*/
-	
-	case "dMajor":
-		$(".D1, .D2").css("background-color", "blue");
-		$(".E1").css("background-color", "purple");
-		$(".Fsharp1").css("background-color", "purple");
-		$(".G1").css("background-color", "purple");
-		$(".A1").css("background-color", "purple");
-		$(".B1").css("background-color", "purple");
-		$(".Csharp2").css("background-color", "purple");
-		
-		$(".note-info").empty("");
-        $(".note-info").append("Fingerings (LH): 5, 4, 3, 2, 1, 3, 2, 1 <br> Fingerings (RH): 1, 2, 3, 1, 2, 3, 4, 5");
-		
-	break;
-	
-	case "eMajor":
-		$(".E1, .E2").css("background-color", "blue");
-		$(".Fsharp1").css("background-color", "purple");
-		$(".Gsharp1").css("background-color", "purple");
-		$(".A1").css("background-color", "purple");
-		$(".B1").css("background-color", "purple");
-		$(".Csharp2").css("background-color", "purple");
-		$(".Dsharp2").css("background-color", "purple");
-		
+		</div>
+
+        <script></script>
+
+        <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+        <script>
+		 $(document).ready(function () {
+		 
+         var deg = 0;
+         setInterval(function(){
+             deg += 0.3;
+             console.log(deg + " degre");
+            $("#subContainer").css({background:  "linear-gradient("+deg+"deg, #2d3436 0%, #d3d3d3 74%)"});
+         },20);
+		 
+		 
+		 
+		 $("#playMetronome").on("click", function(){
+			let minute = 60 * 1000;
+			let inputBpm = $("#bpm").val();
+			let bpm = minute / inputBpm ;
+			let times = 0;
+			console.log(bpm + " bpm ");
+			
+			var metronome = setInterval(function(){
+			if(times < 3){
+				document.getElementById("metronomeSound").currentTime = 0;
+				document.getElementById("metronomeSound").play();
+				times++
+				console.log(times);
+				} else{
+					document.getElementById("metronomeTick").currentTime = 0;
+					document.getElementById("metronomeTick").play();
+					console.log(times);
+					times = 0;
+				}
+			}, bpm);
+			
+			
+			$("#stopMetronome").click(function(){
+			clearInterval(metronome);
+		});
+			
+		 });
+		 
+
+		 
+		 
+		 
+		 
+		 
+		 
+		 
+            var notesNum = [0, 0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4, 4.5, 5, 5.5, 6, 6.5, 7, 7.5, 8, 8.5, 9, 9.5, 10, 10.5, 11, 11.5, 12];
+            //25
+            var keyNames = ["C1", "Csharp1", "D1", "Dsharp1", "E1", "F1", "Fsharp1", "G1", "Gsharp1", "A1", "Asharp1", "B1", "C2", "Csharp2", "D2", "Dsharp2", "E2", "F2", "Fsharp2", "G2", "Gsharp2", "A2", "Asharp2", "B2", "C3"];
+			
+			var listOfKeysToPlay = [];
+				var index = 0;
+                var state = "forward";
+			
+			
+            $("#root, #mode").change(function () {
+                $(".C1").css("background-color", "#cbcbcb");
+                $(".Csharp1").css("background-color", "#000");
+                $(".D1").css("background-color", "#cbcbcb");
+                $(".Dsharp1").css("background-color", "#000");
+                $(".E1").css("background-color", "#cbcbcb");
+                $(".F1").css("background-color", "#cbcbcb");
+                $(".Fsharp1").css("background-color", "#000");
+                $(".G1").css("background-color", "#cbcbcb");
+                $(".Gsharp1").css("background-color", "#000");
+                $(".A1").css("background-color", "#cbcbcb");
+                $(".Asharp1").css("background-color", "#000");
+                $(".B1").css("background-color", "#cbcbcb");
+
+                $(".C2").css("background-color", "#cbcbcb");
+                $(".Csharp2").css("background-color", "#000");
+                $(".D2").css("background-color", "#cbcbcb");
+                $(".Dsharp2").css("background-color", "#000");
+                $(".E2").css("background-color", "#cbcbcb");
+                $(".F2").css("background-color", "#cbcbcb");
+                $(".Fsharp2").css("background-color", "#000");
+                $(".G2").css("background-color", "#cbcbcb");
+                $(".Gsharp2").css("background-color", "#000");
+                $(".A2").css("background-color", "#cbcbcb");
+                $(".Asharp2").css("background-color", "#000");
+                $(".B2").css("background-color", "#cbcbcb");
+                $(".C3").css("background-color", "#cbcbcb");
+
+                ////////////////////////////////////////////////////////////////////////////////////MAJOR SCALE//////////////////////////////////////////////////
+
+                if ($("#mode").val() == "majorScale") {
+                    let rootKeyName;
+
+                    switch ($("#root").val()) {
+                        case "C1":
+                            rootKeyName = $("#root").val();
+                            makeScale(rootKeyName, 1, 2, 2.5, 3.5, 4.5, 5.5, 6);
+							showFingering("R.H. 1 2 3 1 2 3 4 5 L.H. 5 4 3 2 1 3 2 1");
+                            break;
+
+                        case "Csharp1":
+                            rootKeyName = $("#root").val();
+                            makeScale(rootKeyName, 1, 2, 2.5, 3.5, 4.5, 5.5, 6);
+							showFingering("R.H. 2 3 1 2 3 4 1 2 L.H. 3 2 1 4 3 2 1 2");
+                            break;
+
+                        case "D1":
+                            rootKeyName = $("#root").val();
+                            makeScale(rootKeyName, 1, 2, 2.5, 3.5, 4.5, 5.5, 6);
+							showFingering("R.H. 1 2 3 1 2 3 4 5 L.H. 5 4 3 2 1 3 2 1 ");
+                            break;
+
+                        case "Dsharp1":
+                            rootKeyName = $("#root").val();
+                            makeScale(rootKeyName, 1, 2, 2.5, 3.5, 4.5, 5.5, 6);
+							showFingering("R.H. 2 1 2 3 4 1 2 3 L.H. 3 2 1 4 3 2 1 2 ");
+                            break;
+
+                        case "E1":
+                            rootKeyName = $("#root").val();
+                            makeScale(rootKeyName, 1, 2, 2.5, 3.5, 4.5, 5.5, 6);
+							showFingering("R.H. 1 2 3 1 2 3 4 5 L.H. 5 4 3 2 1 3 2 1 ");
+                            break;
+
+                        case "F1":
+                            rootKeyName = $("#root").val();
+                            makeScale(rootKeyName, 1, 2, 2.5, 3.5, 4.5, 5.5, 6);
+							showFingering("R.H. 1 2 3 4 1 2 3 4 L.H. 5 4 3 2 1 3 2 1 ");
+                            break;
+
+                        case "Fsharp1":
+                            rootKeyName = $("#root").val();
+                            makeScale(rootKeyName, 1, 2, 2.5, 3.5, 4.5, 5.5, 6);
+							showFingering("R.H. 2 3 4 1 2 3 1 2 L.H. 4 3 2 1 3 2 1 2 ");
+                            break;
+
+                        case "G1":
+                            rootKeyName = $("#root").val();
+                            makeScale(rootKeyName, 1, 2, 2.5, 3.5, 4.5, 5.5, 6);
+							showFingering("R.H. 1 2 3 1 2 3 4 5 L.H. 5 4 3 2 1 3 2 1 ");
+                            break;
+
+                        case "Gsharp1":
+                            rootKeyName = $("#root").val();
+                            makeScale(rootKeyName, 1, 2, 2.5, 3.5, 4.5, 5.5, 6);
+							showFingering("R.H. 2 3 1 2 3 1 2 3 L.H. 3 2 1 4 3 2 1 2 ");
+                            break;
+
+                        case "A1":
+                            rootKeyName = $("#root").val();
+                            makeScale(rootKeyName, 1, 2, 2.5, 3.5, 4.5, 5.5, 6);
+							showFingering("R.H. 1 2 3 1 2 3 4 5 L.H. 5 4 3 2 1 3 2 1 ");
+                            break;
+
+                        case "Asharp1":
+                            rootKeyName = $("#root").val();
+                            makeScale(rootKeyName, 1, 2, 2.5, 3.5, 4.5, 5.5, 6);
+							showFingering("R.H. 2 1 2 3 1 2 3 4 L.H. 3 2 1 4 3 2 1 2 ");
+                            break;
+
+                        case "B1":
+                            rootKeyName = $("#root").val();
+                            makeScale(rootKeyName, 1, 2, 2.5, 3.5, 4.5, 5.5, 6);
+							showFingering("R.H. 1 2 3 1 2 3 4 5 L.H. 4 3 2 1 4 3 2 1 ");
+                            break;
+
+                        case "C2":
+                            rootKeyName = $("#root").val();
+                            makeScale(rootKeyName, 1, 2, 2.5, 3.5, 4.5, 5.5, 6);
+							showFingering("R.H. 1 2 3 1 2 3 4 5 L.H. 5 4 3 2 1 3 2 1 ");
+                            break;
+
+                        default:
+                            console.log("error une the root drop down selection");
+                    }
+                }
+
+                ///////////////////////////////////////////////////////////////////////////MINOR SCALE///////////////////////////////////////////////////////
+
+                if ($("#mode").val() == "minorScale") {
+                    switch ($("#root").val()) {
+                        case "C1":
+                            rootKeyName = $("#root").val();
+                            makeScale(rootKeyName, 1, 1.5, 2.5, 3.5, 4, 5, 6);
+							showFingering("R.H. 1 2 3 1 2 3 4 5 L.H. 5 4 3 2 1 3 2 1");
+                            break;
+
+                        case "Csharp1":
+                            rootKeyName = $("#root").val();
+                            makeScale(rootKeyName, 1, 1.5, 2.5, 3.5, 4, 5, 6);
+							showFingering("R.H. 3 4 1 2 3 1 2 3 L.H. 3 2 1 4 3 2 1 3 ");
+                            break;
+
+                        case "D1":
+                            rootKeyName = $("#root").val();
+                            makeScale(rootKeyName, 1, 1.5, 2.5, 3.5, 4, 5, 6);
+							showFingering("R.H. 1 2 3 1 2 3 4 5 L.H. 5 4 3 2 1 3 2 1 ");
+                            break;
+
+                        case "Dsharp1":
+                            rootKeyName = $("#root").val();
+                            makeScale(rootKeyName, 1, 1.5, 2.5, 3.5, 4, 5, 6);
+							showFingering("R.H. 3 1 2 3 4 1 2 3 L.H. 2 1 4 3 2 1 3 2 ");
+                            break;
+
+                        case "E1":
+                            rootKeyName = $("#root").val();
+                            makeScale(rootKeyName, 1, 1.5, 2.5, 3.5, 4, 5, 6);
+							showFingering("R.H. 1 2 3 1 2 3 4 5 L.H. 5 4 3 2 1 3 2 1 ");
+                            break;
+
+                        case "F1":
+                            rootKeyName = $("#root").val();
+                            makeScale(rootKeyName, 1, 1.5, 2.5, 3.5, 4, 5, 6);
+							showFingering("R.H. 1 2 3 4 1 2 3 4 L.H. 5 4 3 2 1 3 2 1 ");
+                            break;
+
+                        case "Fsharp1":
+                            rootKeyName = $("#root").val();
+                            makeScale(rootKeyName, 1, 1.5, 2.5, 3.5, 4, 5, 6);
+							showFingering("R.H. 2, 3 1 2 3 1 2 3 L.H. 4 3 2 1 3 2 1 4 ");
+                            break;
+
+                        case "G1":
+                            rootKeyName = $("#root").val();
+                            makeScale(rootKeyName, 1, 1.5, 2.5, 3.5, 4, 5, 6);
+							showFingering("R.H. 1 2 3 1 2 3 4 5 L.H. 5 4 3 2 1 3 2 1 ");
+                            break;
+
+                        case "Gsharp1":
+                            rootKeyName = $("#root").val();
+                            makeScale(rootKeyName, 1, 1.5, 2.5, 3.5, 4, 5, 6);
+							showFingering("R.H. 3 4 1 2 3 1 2 3 L.H. 3 2 1 3 2 1 3 2 ");
+                            break;
+
+                        case "A1":
+                            rootKeyName = $("#root").val();
+                            makeScale(rootKeyName, 1, 1.5, 2.5, 3.5, 4, 5, 6);
+							showFingering("R.H. 1 2 3 1 2 3 4 5 L.H. 5 4 3 2 1 3 2 1 ");
+                            break;
+
+                        case "Asharp1":
+                            rootKeyName = $("#root").val();
+                            makeScale(rootKeyName, 1, 1.5, 2.5, 3.5, 4, 5, 6);
+							showFingering("R.H. 2 1 2 3 1 2 3 4 L.H. 2 1 3 2 1 4 3 2 ");
+                            break;
+
+                        case "B1":
+                            rootKeyName = $("#root").val();
+                            makeScale(rootKeyName, 1, 1.5, 2.5, 3.5, 4, 5, 6);
+							showFingering("R.H. 1 2 3 1 2 3 4 5 L.H. 4 3 2 1 4 3 2 1 ");
+                            break;
+
+                        case "C2":
+                            rootKeyName = $("#root").val();
+                            makeScale(rootKeyName, 1, 1.5, 2.5, 3.5, 4, 5, 6);
+							showFingering("R.H. 1 2 3 1 2 3 4 5 L.H. 5 4 3 2 1 3 2 1");
+                            break;
+
+                        default:
+                            console.log("error une the root drop down selection");
+                    }
+                }
+
+                ///////////////////////////////////////////////////////////////////////////////DORIAN SCALE/////////////////////////////////////////////////////
+
+                if ($("#mode").val() == "dorianScale") {
+                    switch ($("#root").val()) {
+                        case "C1":
+                            rootKeyName = $("#root").val();
+                            makeScale(rootKeyName, 1, 1.5, 2.5, 3.5, 4.5, 5, 6);
+                            break;
+
+                        case "Csharp1":
+                            rootKeyName = $("#root").val();
+                            makeScale(rootKeyName, 1, 1.5, 2.5, 3.5, 4.5, 5, 6);
+                            break;
+
+                        case "D1":
+                            rootKeyName = $("#root").val();
+                            makeScale(rootKeyName, 1, 1.5, 2.5, 3.5, 4.5, 5, 6);
+                            break;
+
+                        case "Dsharp1":
+                            rootKeyName = $("#root").val();
+                            makeScale(rootKeyName, 1, 1.5, 2.5, 3.5, 4.5, 5, 6);
+                            break;
+
+                        case "E1":
+                            rootKeyName = $("#root").val();
+                            makeScale(rootKeyName, 1, 1.5, 2.5, 3.5, 4.5, 5, 6);
+                            break;
+
+                        case "F1":
+                            rootKeyName = $("#root").val();
+                            makeScale(rootKeyName, 1, 1.5, 2.5, 3.5, 4.5, 5, 6);
+                            break;
+
+                        case "Fsharp1":
+                            rootKeyName = $("#root").val();
+                            makeScale(rootKeyName, 1, 1.5, 2.5, 3.5, 4.5, 5, 6);
+                            break;
+
+                        case "G1":
+                            rootKeyName = $("#root").val();
+                            makeScale(rootKeyName, 1, 1.5, 2.5, 3.5, 4.5, 5, 6);
+                            break;
+
+                        case "Gsharp1":
+                            rootKeyName = $("#root").val();
+                            makeScale(rootKeyName, 1, 1.5, 2.5, 3.5, 4.5, 5, 6);
+                            break;
+
+                        case "A1":
+                            rootKeyName = $("#root").val();
+                            makeScale(rootKeyName, 1, 1.5, 2.5, 3.5, 4.5, 5, 6);
+                            break;
+
+                        case "Asharp1":
+                            rootKeyName = $("#root").val();
+                            makeScale(rootKeyName, 1, 1.5, 2.5, 3.5, 4.5, 5, 6);
+                            break;
+
+                        case "B1":
+                            rootKeyName = $("#root").val();
+                            makeScale(rootKeyName, 1, 1.5, 2.5, 3.5, 4.5, 5, 6);
+                            break;
+
+                        case "C2":
+                            rootKeyName = $("#root").val();
+                            makeScale(rootKeyName, 1, 1.5, 2.5, 3.5, 4.5, 5, 6);
+                            break;
+
+                        default:
+                            console.log("error une the root drop down selection");
+                    }
+                }
+
+                //////////////////////////////////////////////////////////////////////////////PHRYGIAN SCALE/////////////////////////////////////////////////
+
+                if ($("#mode").val() == "phrygianScale") {
+                    switch ($("#root").val()) {
+                        case "C1":
+                            rootKeyName = $("#root").val();
+                            makeScale(rootKeyName, 0.5, 1.5, 2.5, 3.5, 4, 5, 6);
+                            break;
+
+                        case "Csharp1":
+                            rootKeyName = $("#root").val();
+                            makeScale(rootKeyName, 0.5, 1.5, 2.5, 3.5, 4, 5, 6);
+                            break;
+
+                        case "D1":
+                            rootKeyName = $("#root").val();
+                            makeScale(rootKeyName, 0.5, 1.5, 2.5, 3.5, 4, 5, 6);
+                            break;
+
+                        case "Dsharp1":
+                            rootKeyName = $("#root").val();
+                            makeScale(rootKeyName, 0.5, 1.5, 2.5, 3.5, 4, 5, 6);
+                            break;
+
+                        case "E1":
+                            rootKeyName = $("#root").val();
+                            makeScale(rootKeyName, 0.5, 1.5, 2.5, 3.5, 4, 5, 6);
+                            break;
+
+                        case "F1":
+                            rootKeyName = $("#root").val();
+                            makeScale(rootKeyName, 0.5, 1.5, 2.5, 3.5, 4, 5, 6);
+                            break;
+
+                        case "Fsharp1":
+                            rootKeyName = $("#root").val();
+                            makeScale(rootKeyName, 0.5, 1.5, 2.5, 3.5, 4, 5, 6);
+                            break;
+
+                        case "G1":
+                            rootKeyName = $("#root").val();
+                            makeScale(rootKeyName, 0.5, 1.5, 2.5, 3.5, 4, 5, 6);
+                            break;
+
+                        case "Gsharp1":
+                            rootKeyName = $("#root").val();
+                            makeScale(rootKeyName, 0.5, 1.5, 2.5, 3.5, 4, 5, 6);
+                            break;
+
+                        case "A1":
+                            rootKeyName = $("#root").val();
+                            makeScale(rootKeyName, 0.5, 1.5, 2.5, 3.5, 4, 5, 6);
+                            break;
+
+                        case "Asharp1":
+                            rootKeyName = $("#root").val();
+                            makeScale(rootKeyName, 0.5, 1.5, 2.5, 3.5, 4, 5, 6);
+                            break;
+
+                        case "B1":
+                            rootKeyName = $("#root").val();
+                            makeScale(rootKeyName, 0.5, 1.5, 2.5, 3.5, 4, 5, 6);
+                            break;
+
+                        case "C2":
+                            rootKeyName = $("#root").val();
+                            makeScale(rootKeyName, 0.5, 1.5, 2.5, 3.5, 4, 5, 6);
+                            break;
+
+                        default:
+                            console.log("error une the root drop down selection");
+                    }
+                }
+
+                //////////////////////////////////////////////////////////////////////////////LYDIAN SCALE//////////////////////////////////////////////////
+
+                if ($("#mode").val() == "lydianScale") {
+                    switch ($("#root").val()) {
+                        case "C1":
+                            rootKeyName = $("#root").val();
+                            makeScale(rootKeyName, 1, 2, 3, 3.5, 4.5, 5.5, 6);
+                            break;
+
+                        case "Csharp1":
+                            rootKeyName = $("#root").val();
+                            makeScale(rootKeyName, 1, 2, 3, 3.5, 4.5, 5.5, 6);
+                            break;
+
+                        case "D1":
+                            rootKeyName = $("#root").val();
+                            makeScale(rootKeyName, 1, 2, 3, 3.5, 4.5, 5.5, 6);
+                            break;
+
+                        case "Dsharp1":
+                            rootKeyName = $("#root").val();
+                            makeScale(rootKeyName, 1, 2, 3, 3.5, 4.5, 5.5, 6);
+                            break;
+
+                        case "E1":
+                            rootKeyName = $("#root").val();
+                            makeScale(rootKeyName, 1, 2, 3, 3.5, 4.5, 5.5, 6);
+                            break;
+
+                        case "F1":
+                            rootKeyName = $("#root").val();
+                            makeScale(rootKeyName, 1, 2, 3, 3.5, 4.5, 5.5, 6);
+                            break;
+
+                        case "Fsharp1":
+                            rootKeyName = $("#root").val();
+                            makeScale(rootKeyName, 1, 2, 3, 3.5, 4.5, 5.5, 6);
+                            break;
+
+                        case "G1":
+                            rootKeyName = $("#root").val();
+                            makeScale(rootKeyName, 1, 2, 3, 3.5, 4.5, 5.5, 6);
+                            break;
+
+                        case "Gsharp1":
+                            rootKeyName = $("#root").val();
+                            makeScale(rootKeyName, 1, 2, 3, 3.5, 4.5, 5.5, 6);
+                            break;
+
+                        case "A1":
+                            rootKeyName = $("#root").val();
+                            makeScale(rootKeyName, 1, 2, 3, 3.5, 4.5, 5.5, 6);
+                            break;
+
+                        case "Asharp1":
+                            rootKeyName = $("#root").val();
+                            makeScale(rootKeyName, 1, 2, 3, 3.5, 4.5, 5.5, 6);
+                            break;
+
+                        case "B1":
+                            rootKeyName = $("#root").val();
+                            makeScale(rootKeyName, 1, 2, 3, 3.5, 4.5, 5.5, 6);
+                            break;
+
+                        case "C2":
+                            rootKeyName = $("#root").val();
+                            makeScale(rootKeyName, 1, 2, 3, 3.5, 4.5, 5.5, 6);
+                            break;
+
+                        default:
+                            console.log("error une the root drop down selection");
+                    }
+                }
+
+                /////////////////////////////////////////////////////////////////////////////MIXOLYDIAN SCALE///////////////////////////////////////////////
+
+                if ($("#mode").val() == "mixolydianScale") {
+                    switch ($("#root").val()) {
+                        case "C1":
+                            rootKeyName = $("#root").val();
+                            makeScale(rootKeyName, 1, 2, 2.5, 3.5, 4.5, 5, 6);
+                            break;
+
+                        case "Csharp1":
+                            rootKeyName = $("#root").val();
+                            makeScale(rootKeyName, 1, 2, 2.5, 3.5, 4.5, 5, 6);
+                            break;
+
+                        case "D1":
+                            rootKeyName = $("#root").val();
+                            makeScale(rootKeyName, 1, 2, 2.5, 3.5, 4.5, 5, 6);
+                            break;
+
+                        case "Dsharp1":
+                            rootKeyName = $("#root").val();
+                            makeScale(rootKeyName, 1, 2, 2.5, 3.5, 4.5, 5, 6);
+                            break;
+
+                        case "E1":
+                            rootKeyName = $("#root").val();
+                            makeScale(rootKeyName, 1, 2, 2.5, 3.5, 4.5, 5, 6);
+                            break;
+
+                        case "F1":
+                            rootKeyName = $("#root").val();
+                            makeScale(rootKeyName, 1, 2, 2.5, 3.5, 4.5, 5, 6);
+                            break;
+
+                        case "Fsharp1":
+                            rootKeyName = $("#root").val();
+                            makeScale(rootKeyName, 1, 2, 2.5, 3.5, 4.5, 5, 6);
+                            break;
+
+                        case "G1":
+                            rootKeyName = $("#root").val();
+                            makeScale(rootKeyName, 1, 2, 2.5, 3.5, 4.5, 5, 6);
+                            break;
+
+                        case "Gsharp1":
+                            rootKeyName = $("#root").val();
+                            makeScale(rootKeyName, 1, 2, 2.5, 3.5, 4.5, 5, 6);
+                            break;
+
+                        case "A1":
+                            rootKeyName = $("#root").val();
+                            makeScale(rootKeyName, 1, 2, 2.5, 3.5, 4.5, 5, 6);
+                            break;
+
+                        case "Asharp1":
+                            rootKeyName = $("#root").val();
+                            makeScale(rootKeyName, 1, 2, 2.5, 3.5, 4.5, 5, 6);
+                            break;
+
+                        case "B1":
+                            rootKeyName = $("#root").val();
+                            makeScale(rootKeyName, 1, 2, 2.5, 3.5, 4.5, 5, 6);
+                            break;
+
+                        case "C2":
+                            rootKeyName = $("#root").val();
+                            makeScale(rootKeyName, 1, 2, 2.5, 3.5, 4.5, 5, 6);
+                            break;
+
+                        default:
+                            console.log("error une the root drop down selection");
+                    }
+                }
+
+                /////////////////////////////////////////////////////////////////////////////LOCRIAN SCALE/////////////////////////////////////////////////
+
+                if ($("#mode").val() == "locrianScale") {
+                    switch ($("#root").val()) {
+                        case "C1":
+                            rootKeyName = $("#root").val();
+                            makeScale(rootKeyName, 0.5, 1.5, 2.5, 3, 4, 5, 6);
+                            break;
+
+                        case "Csharp1":
+                            rootKeyName = $("#root").val();
+                            makeScale(rootKeyName, 0.5, 1.5, 2.5, 3, 4, 5, 6);
+                            break;
+
+                        case "D1":
+                            rootKeyName = $("#root").val();
+                            makeScale(rootKeyName, 0.5, 1.5, 2.5, 3, 4, 5, 6);
+                            break;
+
+                        case "Dsharp1":
+                            rootKeyName = $("#root").val();
+                            makeScale(rootKeyName, 0.5, 1.5, 2.5, 3, 4, 5, 6);
+                            break;
+
+                        case "E1":
+                            rootKeyName = $("#root").val();
+                            makeScale(rootKeyName, 0.5, 1.5, 2.5, 3, 4, 5, 6);
+                            break;
+
+                        case "F1":
+                            rootKeyName = $("#root").val();
+                            makeScale(rootKeyName, 0.5, 1.5, 2.5, 3, 4, 5, 6);
+                            break;
+
+                        case "Fsharp1":
+                            rootKeyName = $("#root").val();
+                            makeScale(rootKeyName, 0.5, 1.5, 2.5, 3, 4, 5, 6);
+                            break;
+
+                        case "G1":
+                            rootKeyName = $("#root").val();
+                            makeScale(rootKeyName, 0.5, 1.5, 2.5, 3, 4, 5, 6);
+                            break;
+
+                        case "Gsharp1":
+                            rootKeyName = $("#root").val();
+                            makeScale(rootKeyName, 0.5, 1.5, 2.5, 3, 4, 5, 6);
+                            break;
+
+                        case "A1":
+                            rootKeyName = $("#root").val();
+                            makeScale(rootKeyName, 0.5, 1.5, 2.5, 3, 4, 5, 6);
+                            break;
+
+                        case "Asharp1":
+                            rootKeyName = $("#root").val();
+                            makeScale(rootKeyName, 0.5, 1.5, 2.5, 3, 4, 5, 6);
+                            break;
+
+                        case "B1":
+                            rootKeyName = $("#root").val();
+                            makeScale(rootKeyName, 0.5, 1.5, 2.5, 3, 4, 5, 6);
+                            break;
+
+                        case "C2":
+                            rootKeyName = $("#root").val();
+                            makeScale(rootKeyName, 0.5, 1.5, 2.5, 3, 4, 5, 6);
+                            break;
+
+                        default:
+                            console.log("error une the root drop down selection");
+                    }
+                }
+
+                ///////////////////////////////////////////////////////////////////////////end of scales//////////////////////////////////////////////////
+				
+				
+                //in = interval
+                function makeScale(root, int1, int2, int3, int4, int5, int6, int7) {
+                    let rootVal = notesNum[keyNames.indexOf(root)];
+                    var scaleList = {
+                        note1: root,
+                        note2: keyNames[notesNum.indexOf(rootVal + int1)],
+                        note3: keyNames[notesNum.indexOf(rootVal + int2)],
+                        note4: keyNames[notesNum.indexOf(rootVal + int3)],
+                        note5: keyNames[notesNum.indexOf(rootVal + int4)],
+                        note6: keyNames[notesNum.indexOf(rootVal + int5)],
+                        note7: keyNames[notesNum.indexOf(rootVal + int6)],
+                        note8: keyNames[notesNum.indexOf(rootVal + int7)],
+                    };
+
+                    $("." + scaleList.note1 + ", ." + scaleList.note8 + "").css("background-color", "#FF9F43");
+                    $("." + scaleList.note2 + "").css("background-color", "#48DBFB");
+                    $("." + scaleList.note3 + "").css("background-color", "#48DBFB");
+                    $("." + scaleList.note4 + "").css("background-color", "#48DBFB");
+                    $("." + scaleList.note5 + "").css("background-color", "#48DBFB");
+                    $("." + scaleList.note6 + "").css("background-color", "#48DBFB");
+                    $("." + scaleList.note7 + "").css("background-color", "#48DBFB");
+
+                    $(".note-info").empty("");
+					
+					listOfKeysToPlay = [scaleList.note1, scaleList.note2, scaleList.note3, scaleList.note4, scaleList.note5, scaleList.note6, scaleList.note7, scaleList.note8];
+					
+                    console.log(scaleList.note1 + " " + scaleList.note2 + " " + scaleList.note3 + " " + scaleList.note4 + " " + scaleList.note5 + " " + scaleList.note6 + " " + scaleList.note7 + " " + scaleList.note8);
+                }
+            });
+			
+			
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////auto play section /////////////////////////////////////////////////////////////////////////////
+			$("button").click(function(){
+				index = 0;
+				state = "forward";
+				autoPlay(listOfKeysToPlay[0], listOfKeysToPlay[1], listOfKeysToPlay[2], listOfKeysToPlay[3], listOfKeysToPlay[4], listOfKeysToPlay[5], listOfKeysToPlay[6], listOfKeysToPlay[7], index);
+			});
+			
+			function autoPlay(note1, note2, note3, note4, note5, note6, note7, note8, index){
+						console.log("listtoplay" + listOfKeysToPlay);
+						console.log(index + "index");
+                        document.getElementById(listOfKeysToPlay[index]).currentTime = 0;
+                        document.getElementById(listOfKeysToPlay[index]).play();
+                        
+                        if (index < 8 && state == "forward") {
+                            index++;
+                        }
+                        if (index >= 8 || state == "backward") {
+                            index--;
+                            state = "backward";
+                        }
+
+                        setTimeout(function () {
+                            autoPlay(note1, note2, note3, note4, note5, note6, note7, note8, index);
+                        }, 350);
+			}
+			
+			
+			//////////////////////////////////////////////////////////////////////////////////////////////////////////fingering ///////////////////////////////////////////////////////////////////////////////////
+			
+			
+			function showFingering(leftAndRightHand){
+				var fullText = leftAndRightHand;
+				var rightHand = fullText.split('R.H.').pop().split('L.H.')[0];
+				var leftHand = fullText.substring(20, fullText.length);
+				var lineBreak = "<br>"; 
 				$(".note-info").empty("");
-        $(".note-info").append("Fingerings (LH): 5, 4, 3, 2, 1, 3, 2, 1 <br> Fingerings (RH): 1, 2, 3, 1, 2, 3, 4, 5");
-	break;
+				$(".note-info").append("R.H." + rightHand+ lineBreak + leftHand);
+				console.log(leftHand + " left");
+			}
+			
+			
+			
+			
+
+            ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+            $(document).on("input", "#volumeRange", function () {
+                $("audio").each(function () {
+                    $(this).prop("volume", $("#volumeRange").val());
+                });
+            });
+
+            // 60 represents middle C
+            var level1Notes = [60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72];
+
+            if (navigator.requestMIDIAccess) {
+                console.log("WebMIDI is supported in this browser.");
+                navigator.requestMIDIAccess({ sysex: true }).then(onMIDISuccess, onMIDIFailure);
+            } else {
+                console.log("WebMIDI is not supported in this browser.");
+            }
+
+            ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+            function onMIDISuccess(midiAccess) {
+                shuffleArray(level1Notes);
+                //   drawNote(level1Notes[noteIndex]);
+
+                var inputs = midiAccess.inputs;
+                var outputs = midiAccess.outputs;
+
+                for (var input of midiAccess.inputs.values()) {
+                    input.onmidimessage = getMIDIMessage;
+                }
+            }
+
+            function onMIDIFailure() {
+                console.log("Error: Could not access MIDI devices. Connect a device and refresh to try again.");
+            }
+
+            /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            var noteCounter = 1;
+            function getMIDIMessage(message) {
+                noteCounter++;
+                var command = message.data[0];
+                var note = message.data[1];
+                var velocity = message.data[2];
+
+                switch (command) {
+                    case 144: // noteOn
+                        // document.querySelector('.note-info').textContent = 'Command: ' + command +
+                        //     ' , Note: ' + note + ' , Velocity: ' + velocity;
+                        // noteOnListener(note);
+                        break;
+                }
+                if (noteCounter % 2 == 0) {
+                    switch (note) {
+                        case 60:
+                            playSelectedNote("C1");
+                            break;
+
+                        case 61:
+                            playSelectedNote("Csharp1");
+                            break;
+
+                        case 62:
+                            playSelectedNote("D1");
+                            break;
+
+                        case 63:
+                            playSelectedNote("Dsharp1");
+                            break;
+
+                        case 64:
+                            playSelectedNote("E1");
+                            break;
+
+                        case 65:
+                            playSelectedNote("F1");
+                            break;
+
+                        case 66:
+                            playSelectedNote("Fsharp1");
+                            break;
+
+                        case 67:
+                            playSelectedNote("G1");
+                            break;
+
+                        case 68:
+                            playSelectedNote("Gsharp1");
+                            break;
+
+                        case 69:
+                            playSelectedNote("A1");
+                            break;
+
+                        case 70:
+                            playSelectedNote("Asharp1");
+                            break;
+
+                        case 71:
+                            playSelectedNote("B1");
+                            break;
+
+                        case 72:
+                            playSelectedNote("C2");
+                            break;
+
+                        case 73:
+                            playSelectedNote("Csharp2");
+                            break;
+
+                        case 74:
+                            playSelectedNote("D2");
+                            break;
+
+                        case 75:
+                            playSelectedNote("Dsharp2");
+                            break;
+
+                        case 76:
+                            playSelectedNote("E2");
+                            break;
+
+                        case 77:
+                            playSelectedNote("F2");
+                            break;
+
+                        case 78:
+                            playSelectedNote("Fsharp2");
+                            break;
+
+                        case 79:
+                            playSelectedNote("G2");
+                            break;
+
+                        case 80:
+                            playSelectedNote("Gsharp2");
+                            break;
+
+                        case 81:
+                            playSelectedNote("A2");
+                            break;
+
+                        case 82:
+                            playSelectedNote("Asharp2");
+                            break;
+
+                        case 83:
+                            playSelectedNote("B2");
+                            break;
+
+                        case 84:
+                            playSelectedNote("C3");
+                            break;
+
+                        default:
+                    }
+                }
+            }
+
+            function playSelectedNote(elementId) {
+                document.getElementById(elementId).currentTime = 0;
+                document.getElementById(elementId).play();
+
+                $("." + elementId + "").css("border", "4px solid white");
+                setTimeout(function () {
+                    $("." + elementId + "").css("border", "3px solid black");
+                }, 400);
+            }
+
+            /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	
-	case "fMajor":
-		$(".F1, .F2").css("background-color", "blue");
-		$(".G1").css("background-color", "purple");
-		$(".A1").css("background-color", "purple");
-		$(".Asharp1").css("background-color", "purple");
-		$(".C2").css("background-color", "purple");
-		$(".D2").css("background-color", "purple");
-		$(".E2").css("background-color", "purple");
-		
-				$(".note-info").empty("");
-        $(".note-info").append("Fingerings (LH): 5, 4, 3, 2, 1, 3, 2, 1 <br> Fingerings (RH): 1, 2, 3, 4, 1, 2, 3, 4");
-	break;
-	
-		case "gMajor":
-		$(".G1, .G2").css("background-color", "blue");
-		$(".A1").css("background-color", "purple");
-		$(".B1").css("background-color", "purple");
-		$(".C2").css("background-color", "purple");
-		$(".D2").css("background-color", "purple");
-		$(".E2").css("background-color", "purple");
-		$(".Fsharp2").css("background-color", "purple");
-		
-				$(".note-info").empty("");
-        $(".note-info").append("Fingerings (LH): 5, 4, 3, 2, 1, 3, 2, 1 <br> Fingerings (RH): 1, 2, 3, 1, 2, 3, 4, 5");
-	break;
-	
-	
-	case "aMajor":
-		$(".A1, .A2").css("background-color", "blue");
-		$(".B1").css("background-color", "purple");
-		$(".Csharp2").css("background-color", "purple");
-		$(".D2").css("background-color", "purple");
-		$(".E2").css("background-color", "purple");
-		$(".Fsharp2").css("background-color", "purple");
-		$(".Gsharp2").css("background-color", "purple");
-		
-				$(".note-info").empty("");
-        $(".note-info").append("Fingerings (LH): 5, 4, 3, 2, 1, 3, 2, 1 <br> Fingerings (RH): 1, 2, 3, 1, 2, 3, 4, 5");
-	break;
-	
-	case "bMajor":
-		$(".B1, .B2").css("background-color", "blue");
-		$(".Csharp2").css("background-color", "purple");
-		$(".Dsharp2").css("background-color", "purple");
-		$(".E2").css("background-color", "purple");
-		$(".Fsharp2").css("background-color", "purple");
-		$(".Gsharp2").css("background-color", "purple");
-		$(".Asharp2").css("background-color", "purple");
-		
-				$(".note-info").empty("");
-        $(".note-info").append("Fingerings (LH): 4, 3, 2, 1, 4, 3, 2, 1 <br> Fingerings (RH): 1, 2, 3, 1, 2, 3, 4, 5");
-	break;
-	
-	case "c#Major":
-		$(".Csharp1, .Csharp2").css("background-color", "blue");
-		$(".Dsharp1").css("background-color", "purple");
-		$(".F1").css("background-color", "purple");
-		$(".Fsharp1").css("background-color", "purple");
-		$(".Gsharp1").css("background-color", "purple");
-		$(".Asharp1").css("background-color", "purple");
-		$(".C2").css("background-color", "purple");
-		
-				$(".note-info").empty("");
-        $(".note-info").append("Fingerings (LH): 3, 2, 1, 4, 3, 2, 1, 3 <br> Fingerings (RH): 2, 3, 1, 2, 3, 4, 1, 2");
-	break;
-	
-	case "d#Major":
-		$(".Dsharp1, .Dsharp2").css("background-color", "blue");
-		$(".F1").css("background-color", "purple");
-		$(".G1").css("background-color", "purple");
-		$(".Gsharp1").css("background-color", "purple");
-		$(".Asharp1").css("background-color", "purple");
-		$(".C2").css("background-color", "purple");
-		$(".D2").css("background-color", "purple");
-		
-				$(".note-info").empty("");
-        $(".note-info").append("Fingerings (LH): 3, 2, 1, 4, 3, 2, 1, 3 <br> Fingerings (RH): 3, 1, 2, 3, 4, 1, 2, 3");
-	break;
-	
-	case "f#Major":
-		$(".Fsharp1, .Fsharp2").css("background-color", "blue");
-		$(".Gsharp1").css("background-color", "purple");
-		$(".Asharp1").css("background-color", "purple");
-		$(".B1").css("background-color", "purple");
-		$(".Csharp2").css("background-color", "purple");
-		$(".Dsharp2").css("background-color", "purple");
-		$(".F2").css("background-color", "purple");
-		
-				$(".note-info").empty("");
-        $(".note-info").append("Fingerings (LH): 4, 3, 2, 1, 3, 2, 1, 4 <br> Fingerings (RH): 2, 3, 4, 1, 2, 3, 1, 2");
-	break;
-	
-	case "g#Major":
-		$(".Gsharp1, .Gsharp2").css("background-color", "blue");
-		$(".Asharp1").css("background-color", "purple");
-		$(".C2").css("background-color", "purple");
-		$(".Csharp2").css("background-color", "purple");
-		$(".Dsharp2").css("background-color", "purple");
-		$(".F2").css("background-color", "purple");
-		$(".G2").css("background-color", "purple");
-		
-				$(".note-info").empty("");
-        $(".note-info").append("Fingerings (LH): 3, 2, 1, 4, 3, 2, 1, 3 <br> Fingerings (RH): 3, 4, 1, 2, 3, 1, 2, 3");
-	break;
-	
-	case "a#Major":
-		$(".Asharp1, .Asharp2").css("background-color", "blue");
-		$(".C2").css("background-color", "purple");
-		$(".D2").css("background-color", "purple");
-		$(".Dsharp2").css("background-color", "purple");
-		$(".F2").css("background-color", "purple");
-		$(".G2").css("background-color", "purple");
-		$(".A2").css("background-color", "purple");
-		
-				$(".note-info").empty("");
-        $(".note-info").append("Fingerings (LH): 3, 2, 1, 4, 3, 2, 1, 3 <br> Fingerings (RH): 4, 1, 2, 3, 1, 2, 3, 4");
-	break;
-	
-	
-	/*----------------------------------------- minors ------------------------------------*/ 
-	
-	case "aMinor":
-		$(".A1, .A2").css("background-color", "blue");
-		$(".B1").css("background-color", "purple");
-		$(".C2").css("background-color", "purple");
-		$(".D2").css("background-color", "purple");
-		$(".E2").css("background-color", "purple");
-		$(".F2").css("background-color", "purple");
-		$(".G2").css("background-color", "purple");
-		
-			$(".note-info").empty("");
-        $(".note-info").append("Fingerings (LH): 5, 4, 3, 2, 1, 3, 2, 1 <br> Fingerings (RH): 1, 2, 3, 1, 2, 3, 4, 5");
-	
-	break;
-	
-	case "a#Minor":
-		$(".Asharp1, .Asharp2").css("background-color", "blue");
-		$(".C2").css("background-color", "purple");
-		$(".Csharp2").css("background-color", "purple");
-		$(".Dsharp2").css("background-color", "purple");
-		$(".F2").css("background-color", "purple");
-		$(".Fsharp2").css("background-color", "purple");
-		$(".Gsharp2").css("background-color", "purple");
-		
-					$(".note-info").empty("");
-        $(".note-info").append("Fingerings (LH): 2, 1, 3, 2, 1, 4, 3, 2 <br> Fingerings (RH): 2, 1, 2, 3, 1, 2, 3, 4");
-	
-	break;
-	
-	case "bMinor":
-		$(".B1, .B2").css("background-color", "blue");
-		$(".Csharp2").css("background-color", "purple");
-		$(".D2").css("background-color", "purple");
-		$(".E2").css("background-color", "purple");
-		$(".Fsharp2").css("background-color", "purple");
-		$(".G2").css("background-color", "purple");
-		$(".A2").css("background-color", "purple");
-		
-					$(".note-info").empty("");
-        $(".note-info").append("Fingerings (LH): 4, 3, 2, 1, 4, 3, 2, 1 <br> Fingerings (RH): 1, 2, 3, 1, 2, 3, 4, 5");
-	
-	break;
-	
-	case "cMinor":
-		$(".C1, .C2").css("background-color", "blue");
-		$(".D1").css("background-color", "purple");
-		$(".Dsharp1").css("background-color", "purple");
-		$(".F1").css("background-color", "purple");
-		$(".G1").css("background-color", "purple");
-		$(".Gsharp1").css("background-color", "purple");
-		$(".Asharp1").css("background-color", "purple");
-		
-					$(".note-info").empty("");
-        $(".note-info").append("Fingerings (LH): 5, 4, 3, 2, 1, 3, 2, 1 <br> Fingerings (RH): 1, 2, 3, 1, 2, 3, 4, 5");
-	
-	break;
-	
-	case "c#Minor":
-		$(".Csharp1, .Csharp2").css("background-color", "blue");
-		$(".Dsharp1").css("background-color", "purple");
-		$(".E1").css("background-color", "purple");
-		$(".Fsharp1").css("background-color", "purple");
-		$(".Gsharp1").css("background-color", "purple");
-		$(".A1").css("background-color", "purple");
-		$(".B1").css("background-color", "purple");
-		
-					$(".note-info").empty("");
-        $(".note-info").append("Fingerings (LH): 3, 2, 1, 4, 3, 2, 1, 3 <br> Fingerings (RH): 3, 4, 1, 2, 3, 1, 2, 3");
-	
-	break;
-	
-	case "dMinor":
-		$(".D1, .D2").css("background-color", "blue");
-		$(".E1").css("background-color", "purple");
-		$(".F1").css("background-color", "purple");
-		$(".G1").css("background-color", "purple");
-		$(".A1").css("background-color", "purple");
-		$(".Asharp1").css("background-color", "purple");
-		$(".C2").css("background-color", "purple");
-		
-					$(".note-info").empty("");
-        $(".note-info").append("Fingerings (LH): 5, 4, 3, 2, 1, 3, 2, 1 <br> Fingerings (RH): 1, 2, 3, 1, 2, 3, 4, 5");
-	
-	break;
-	
-	case "d#Minor":
-		$(".Dsharp1, .Dsharp2").css("background-color", "blue");
-		$(".F1").css("background-color", "purple");
-		$(".Fsharp1").css("background-color", "purple");
-		$(".Gsharp1").css("background-color", "purple");
-		$(".Asharp1").css("background-color", "purple");
-		$(".B1").css("background-color", "purple");
-		$(".Csharp2").css("background-color", "purple");
-		
-					$(".note-info").empty("");
-        $(".note-info").append("Fingerings (LH): 2, 1, 4, 3, 2, 1, 3, 2 <br> Fingerings (RH): 3, 1, 2, 3, 4, 1, 2, 3");
-	
-	break;
-	
-	case "eMinor":
-		$(".E1, .E2").css("background-color", "blue");
-		$(".Fsharp1").css("background-color", "purple");
-		$(".G1").css("background-color", "purple");
-		$(".A1").css("background-color", "purple");
-		$(".B1").css("background-color", "purple");
-		$(".C2").css("background-color", "purple");
-		$(".D2").css("background-color", "purple");
-		
-					$(".note-info").empty("");
-        $(".note-info").append("Fingerings (LH): 5, 4, 3, 2, 1, 3, 2, 1 <br> Fingerings (RH): 1, 2, 3, 1, 2, 3, 4, 5");
-	
-	break;
-	
-	case "fMinor":
-		$(".F1, .F2").css("background-color", "blue");
-		$(".G1").css("background-color", "purple");
-		$(".Gsharp1").css("background-color", "purple");
-		$(".Asharp1").css("background-color", "purple");
-		$(".C2").css("background-color", "purple");
-		$(".Csharp2").css("background-color", "purple");
-		$(".Dsharp2").css("background-color", "purple");
-		
-					$(".note-info").empty("");
-        $(".note-info").append("Fingerings (LH): 5, 4, 3, 2, 1, 3, 2, 1 <br> Fingerings (RH): 1, 2, 3, 4, 1, 2, 3, 4");
-	
-	break;
-	
-	case "f#Minor":
-		$(".Fsharp1, .Fsharp2").css("background-color", "blue");
-		$(".Gsharp1").css("background-color", "purple");
-		$(".A1").css("background-color", "purple");
-		$(".B1").css("background-color", "purple");
-		$(".Csharp2").css("background-color", "purple");
-		$(".D2").css("background-color", "purple");
-		$(".E2").css("background-color", "purple");
-		
-					$(".note-info").empty("");
-        $(".note-info").append("Fingerings (LH): 4, 3, 2, 1, 3, 2, 1, 4 <br> Fingerings (RH): 2, 3, 1, 2, 3, 1, 2, 3");
-	
-	break;
-	
-	case "gMinor":
-		$(".G1, .G2").css("background-color", "blue");
-		$(".A1").css("background-color", "purple");
-		$(".Asharp1").css("background-color", "purple");
-		$(".C2").css("background-color", "purple");
-		$(".D2").css("background-color", "purple");
-		$(".Dsharp2").css("background-color", "purple");
-		$(".F2").css("background-color", "purple");
-		
-					$(".note-info").empty("");
-        $(".note-info").append("Fingerings (LH): 5, 4, 3, 2, 1, 3, 2, 1 <br> Fingerings (RH): 1, 2, 3, 1, 2, 3, 4, 5");
-	
-	break;
-	
-	case "g#Minor":
-		$(".Gsharp1, .Gsharp2").css("background-color", "blue");
-		$(".Asharp1").css("background-color", "purple");
-		$(".B1").css("background-color", "purple");
-		$(".Csharp2").css("background-color", "purple");
-		$(".Dsharp2").css("background-color", "purple");
-		$(".E2").css("background-color", "purple");
-		$(".Fsharp2").css("background-color", "purple");
-		
-					$(".note-info").empty("");
-        $(".note-info").append("Fingerings (LH): 3, 2, 1, 3, 2, 1, 3, 2 <br> Fingerings (RH): 3, 4, 1, 2, 3, 1, 2, 3");
-	
-	break;
-	
-  
-  default:
-    // code block
-} 
-});
+
+            function getNoteNameFromNumber(noteNum) {
+                var notes = "C C#D D#E F F#G G#A A#B ";
+                var octave;
+                var note;
+
+                octave = Math.floor(noteNum / 12 - 1);
+                note = notes.substring((noteNum % 12) * 2, (noteNum % 12) * 2 + 2);
+
+                return note;
+            }
+
+            function shuffleArray(array) {
+                for (let i = array.length - 1; i > 0; i--) {
+                    const j = Math.floor(Math.random() * (i + 1));
+                    [array[i], array[j]] = [array[j], array[i]];
+                }
+            }
+
+            //////////////////////////////////////////////////////////////////////////////////end of midi section////////////////////////////////////////////
+
+            var hoveredDiv;
+            var originalColor = [];
+            var notesToSelect = [];
+
+            $("#chords").change(function () {
+                if ($("#chords").val() == "majorChords") {
+                    $("div").hover(function () {
+                        if (this.className.split(" ").pop() != hoveredDiv) {
+                            uncoloringNotes(notesToSelect[0], notesToSelect[1], notesToSelect[2], originalColor[0], originalColor[1], originalColor[2]);
+                        }
+
+                        hoveredDiv = this.className.split(" ").pop();
+
+                        switch (hoveredDiv) {
+                            case "C1":
+                                notesToSelect = [".C1", ".E1", ".G1"];
+                                coloringNotes(".C1", ".E1", ".G1", "yellow");
+                                $(".C1").click(function () {
+                                    playChords("C1", "E1", "G1");
+                                });
+                                break;
+
+                            case "Csharp1":
+                                notesToSelect = [".Csharp1", ".F1", ".Gsharp1"];
+                                coloringNotes(".Csharp1", ".F1", ".Gsharp1", "yellow");
+                                $(".Csharp1").click(function () {
+                                    playChords("Csharp1", "F1", "Gsharp1");
+                                });
+                                break;
+
+                            case "D1":
+                                notesToSelect = [".D1", ".Fsharp1", ".A1"];
+                                coloringNotes(".D1", ".Fsharp1", ".A1", "yellow");
+                                $(".D1").click(function () {
+                                    playChords("D1", "Fsharp1", "A1");
+                                });
+                                break;
+
+                            case "Dsharp1":
+                                notesToSelect = [".Dsharp1", ".G1", ".Asharp1"];
+                                coloringNotes(".Dsharp1", ".G1", ".Asharp1", "yellow");
+                                $(".Dsharp1").click(function () {
+                                    playChords("Dsharp1", "G1", "Asharp1");
+                                });
+                                break;
+
+                            case "E1":
+                                notesToSelect = [".E1", ".Gsharp1", ".B1"];
+                                coloringNotes(".E1", ".Gsharp1", ".B1", "yellow");
+                                $(".E1").click(function () {
+                                    playChords("E1", "Gsharp1", "B1");
+                                });
+                                break;
+
+                            case "F1":
+                                notesToSelect = [".F1", ".A1", ".C2"];
+                                coloringNotes(".F1", ".A1", ".C2", "yellow");
+                                $(".F1").click(function () {
+                                    playChords("F1", "A1", "C2");
+                                });
+                                break;
+
+                            case "Fsharp1":
+                                notesToSelect = [".Fsharp1", ".Asharp1", ".Csharp2"];
+                                coloringNotes(".Fsharp1", ".Asharp1", ".Csharp2", "yellow");
+                                $(".Fsharp1").click(function () {
+                                    playChords("Fsharp1", "Asharp1", "Csharp2");
+                                });
+                                break;
+
+                            case "G1":
+                                notesToSelect = [".G1", ".B1", ".D2"];
+                                coloringNotes(".G1", ".B1", ".D2", "yellow");
+                                $(".G1").click(function () {
+                                    playChords("G1", "B1", "D2");
+                                });
+                                break;
+
+                            case "Gsharp1":
+                                notesToSelect = [".Gsharp1", ".C2", ".Dsharp2"];
+                                coloringNotes(".Gsharp1", ".C2", ".Dsharp2", "yellow");
+                                $(".Gsharp1").click(function () {
+                                    playChords("Gsharp1", "C2", "Dsharp2");
+                                });
+                                break;
+
+                            case "A1":
+                                notesToSelect = [".A1", ".Csharp2", ".E2"];
+                                coloringNotes(".A1", ".Csharp2", ".E2", "yellow");
+                                $(".A1").click(function () {
+                                    playChords("A1", "Csharp2", "E2");
+                                });
+                                break;
+
+                            case "Asharp1":
+                                notesToSelect = [".Asharp1", ".D2", ".F2"];
+                                coloringNotes(".Asharp1", ".D2", ".F2", "yellow");
+                                $(".Asharp1").click(function () {
+                                    playChords("Asharp1", "D2", "F2");
+                                });
+                                break;
+
+                            case "B1":
+                                notesToSelect = [".B1", ".Dsharp2", ".Fsharp2"];
+                                coloringNotes(".B1", ".Dsharp2", ".Fsharp2", "yellow");
+                                $(".B1").click(function () {
+                                    playChords("B1", "Dsharp2", "Fsharp2");
+                                });
+                                break;
+
+                            /* ------------------------------------------------------------------------------second section ---------------------------------*/
+
+                            case "C2":
+                                notesToSelect = [".C2", ".E2", ".G2"];
+                                coloringNotes(".C2", ".E2", ".G2", "yellow");
+                                $(".C2").click(function () {
+                                    playChords("C2", "E2", "G2");
+                                });
+                                break;
+
+                            case "Csharp2":
+                                notesToSelect = [".Csharp2", ".F2", ".Gsharp2"];
+                                coloringNotes(".Csharp2", ".F2", ".Gsharp2", "yellow");
+                                $(".Csharp2").click(function () {
+                                    playChords("Csharp2", "F2", "Gsharp2");
+                                });
+                                break;
+
+                            case "D2":
+                                notesToSelect = [".D2", ".Fsharp2", ".A2"];
+                                coloringNotes(".D2", ".Fsharp2", ".A2", "yellow");
+                                $(".D2").click(function () {
+                                    playChords("D2", "Fsharp2", "A2");
+                                });
+                                break;
+
+                            case "Dsharp2":
+                                notesToSelect = [".Dsharp2", ".G2", ".Asharp2"];
+                                coloringNotes(".Dsharp2", ".G2", ".Asharp2", "yellow");
+                                $(".Dsharp2").click(function () {
+                                    playChords("Dsharp2", "G2", "Asharp2");
+                                });
+                                break;
+
+                            case "E2":
+                                notesToSelect = [".E2", ".Gsharp2", ".B2"];
+                                coloringNotes(".E2", ".Gsharp2", ".B2", "yellow");
+                                $(".E2").click(function () {
+                                    playChords("E2", "Gsharp2", "B2");
+                                });
+                                break;
+
+                            case "F2":
+                                notesToSelect = [".F2", ".A2", ".C3"];
+                                coloringNotes(".F2", ".A2", ".C3", "yellow");
+                                $(".F2").click(function () {
+                                    playChords("F2", "A2", "C3");
+                                });
+                                break;
+
+                            case "Fsharp2":
+                                notesToSelect = [".Fsharp2", ".Asharp2", ".Csharp3"];
+                                coloringNotes(".Fsharp2", ".Asharp2", ".Csharp3", "yellow");
+                                $(".Fsharp2").click(function () {
+                                    playChords("Fsharp2", "Asharp2", "Csharp3");
+                                });
+                                break;
+
+                            case "G2":
+                                notesToSelect = [".G2", ".B2", ".D3"];
+                                coloringNotes(".G2", ".B2", ".D3", "yellow");
+                                $(".G2").click(function () {
+                                    playChords("G2", "B2", "D3");
+                                });
+                                break;
+
+                            case "Gsharp2":
+                                notesToSelect = [".Gsharp2", ".C3", ".Dsharp3"];
+                                coloringNotes(".Gsharp2", ".C3", ".Dsharp3", "yellow");
+                                $(".Gsharp2").click(function () {
+                                    playChords(".Gsharp2", ".C3", ".Dsharp3");
+                                });
+                                break;
+
+                            case "A2":
+                                notesToSelect = [".A2", ".Csharp3", ".E3"];
+                                coloringNotes(".A2", ".Csharp3", ".E3", "yellow");
+                                $(".A2").click(function () {
+                                    playChords("A2", "Csharp3", "E3");
+                                });
+                                break;
+
+                            case "Asharp2":
+                                notesToSelect = [".Asharp2", ".D3", ".F3"];
+                                coloringNotes(".Asharp2", ".D3", ".F3", "yellow");
+                                $(".Asharp2").click(function () {
+                                    playChords("Asharp2", "D3", "F3");
+                                });
+                                break;
+
+                            case "B2":
+                                notesToSelect = [".B2", ".Dsharp3", ".Fsharp3"];
+                                coloringNotes(".B2", ".Dsharp3", ".Fsharp3", "yellow");
+                                $(".B2").click(function () {
+                                    playChords("B2", "Dsharp3", "Fsharp3");
+                                });
+                                break;
+
+                            default:
+                            // code block
+                        }
+
+                        function coloringNotes(note1, note2, note3, notesColor) {
+                            originalColor.push($(note1).css("background-color"));
+                            originalColor.push($(note2).css("background-color"));
+                            originalColor.push($(note3).css("background-color"));
+
+                            $(note1).css("background-color", notesColor);
+                            $(note2).css("background-color", notesColor);
+                            $(note3).css("background-color", notesColor);
+                        }
+
+                        function uncoloringNotes(note1, note2, note3, notesColor1, notesColor2, notesColor3) {
+                            $(note1).css("background-color", notesColor1);
+                            $(note2).css("background-color", notesColor2);
+                            $(note3).css("background-color", notesColor3);
+                            originalColor = [];
+                        }
+
+                        function playChords(note1, note2, note3) {
+                            document.getElementById(note1).currentTime = 0;
+                            document.getElementById(note2).currentTime = 0;
+                            document.getElementById(note3).currentTime = 0;
+
+                            document.getElementById(note1).play();
+                            document.getElementById(note2).play();
+                            document.getElementById(note3).play();
+                        }
+                    });
+                }
+
+                if ($("#chords").val() == "minorChords") {
+                    $("div").hover(function () {
+                        if (this.className.split(" ").pop() != hoveredDiv) {
+                            uncoloringNotes(notesToSelect[0], notesToSelect[1], notesToSelect[2], originalColor[0], originalColor[1], originalColor[2]);
+                        }
+
+                        hoveredDiv = this.className.split(" ").pop();
+
+                        switch (hoveredDiv) {
+                            case "C1":
+                                notesToSelect = [".C1", ".Dsharp1", ".G1"];
+                                coloringNotes(".C1", ".Dsharp1", ".G1", "yellow");
+                                $(".C1").click(function () {
+                                    playChords("C1", "Dsharp1", "G1");
+                                });
+                                break;
+
+                            case "Csharp1":
+                                notesToSelect = [".Csharp1", ".E1", ".Gsharp1"];
+                                coloringNotes(".Csharp1", ".E1", ".Gsharp1", "yellow");
+                                $(".Csharp1").click(function () {
+                                    playChords("Csharp1", "E1", "Gsharp1");
+                                });
+                                break;
+
+                            case "D1":
+                                notesToSelect = [".D1", ".F1", ".A1"];
+                                coloringNotes(".D1", ".F1", ".A1", "yellow");
+                                $(".D1").click(function () {
+                                    playChords("D1", "F1", "A1");
+                                });
+                                break;
+
+                            case "Dsharp1":
+                                notesToSelect = [".Dsharp1", ".Fsharp1", ".Asharp1"];
+                                coloringNotes(".Dsharp1", ".Fsharp1", ".Asharp1", "yellow");
+                                $(".Dsharp1").click(function () {
+                                    playChords("Dsharp1", "Fsharp1", "Asharp1");
+                                });
+                                break;
+
+                            case "E1":
+                                notesToSelect = [".E1", ".G1", ".B1"];
+                                coloringNotes(".E1", ".G1", ".B1", "yellow");
+                                $(".E1").click(function () {
+                                    playChords("E1", "G1", "B1");
+                                });
+                                break;
+
+                            case "F1":
+                                notesToSelect = [".F1", ".Gsharp1", ".C2"];
+                                coloringNotes(".F1", ".Gsharp1", ".C2", "yellow");
+                                $(".F1").click(function () {
+                                    playChords("F1", "Gsharp1", "C2");
+                                });
+                                break;
+
+                            case "Fsharp1":
+                                notesToSelect = [".Fsharp1", ".A1", ".Csharp2"];
+                                coloringNotes(".Fsharp1", ".A1", ".Csharp2", "yellow");
+                                $(".Fsharp1").click(function () {
+                                    playChords("Fsharp1", "A1", "Csharp2");
+                                });
+                                break;
+
+                            case "G1":
+                                notesToSelect = [".G1", ".Asharp1", ".D2"];
+                                coloringNotes(".G1", ".Asharp1", ".D2", "yellow");
+                                $(".G1").click(function () {
+                                    playChords("G1", "Asharp1", "D2");
+                                });
+                                break;
+
+                            case "Gsharp1":
+                                notesToSelect = [".Gsharp1", ".B1", ".Dsharp2"];
+                                coloringNotes(".Gsharp1", ".B1", ".Dsharp2", "yellow");
+                                $(".Gsharp1").click(function () {
+                                    playChords("Gsharp1", "B1", "Dsharp2");
+                                });
+                                break;
+
+                            case "A1":
+                                notesToSelect = [".A1", ".C2", ".E2"];
+                                coloringNotes(".A1", ".C2", ".E2", "yellow");
+                                $(".A1").click(function () {
+                                    playChords("A1", "C2", "E2");
+                                });
+                                break;
+
+                            case "Asharp1":
+                                notesToSelect = [".Asharp1", ".Csharp2", ".F2"];
+                                coloringNotes(".Asharp1", ".Csharp2", ".F2", "yellow");
+                                $(".Asharp1").click(function () {
+                                    playChords("Asharp1", "Csharp2", "F2");
+                                });
+                                break;
+
+                            case "B1":
+                                notesToSelect = [".B1", ".D2", ".Fsharp2"];
+                                coloringNotes(".B1", ".D2", ".Fsharp2", "yellow");
+                                $(".B1").click(function () {
+                                    playChords("B1", "D2", "Fsharp2");
+                                });
+                                break;
+
+                            /* ------------------------------------------------------------------------------second section ---------------------------------*/
+
+                            case "C2":
+                                notesToSelect = [".C2", ".Dsharp2", ".G2"];
+                                coloringNotes(".C2", ".Dsharp2", ".G2", "yellow");
+                                $(".C2").click(function () {
+                                    playChords("C2", "Dsharp2", "G2");
+                                });
+                                break;
+
+                            case "Csharp2":
+                                notesToSelect = [".Csharp2", ".E2", ".Gsharp2"];
+                                coloringNotes(".Csharp2", ".E2", ".Gsharp2", "yellow");
+                                $(".Csharp2").click(function () {
+                                    playChords("Csharp2", "E2", "Gsharp2");
+                                });
+                                break;
+
+                            case "D2":
+                                notesToSelect = [".D2", ".F2", ".A2"];
+                                coloringNotes(".D2", ".F2", ".A2", "yellow");
+                                $(".D2").click(function () {
+                                    playChords("D2", "F2", "A2");
+                                });
+                                break;
+
+                            case "Dsharp2":
+                                notesToSelect = [".Dsharp2", ".Fsharp2", ".Asharp2"];
+                                coloringNotes(".Dsharp2", ".Fsharp2", ".Asharp2", "yellow");
+                                $(".Dsharp2").click(function () {
+                                    playChords("Dsharp2", "Fsharp2", "Asharp2");
+                                });
+                                break;
+
+                            case "E2":
+                                notesToSelect = [".E2", ".G2", ".B2"];
+                                coloringNotes(".E2", ".G2", ".B2", "yellow");
+                                $(".E2").click(function () {
+                                    playChords("E2", "G2", "B2");
+                                });
+                                break;
+
+                            case "F2":
+                                notesToSelect = [".F2", ".Gsharp2", ".C3"];
+                                coloringNotes(".F2", ".Gsharp2", ".C3", "yellow");
+                                $(".F2").click(function () {
+                                    playChords("F2", "Gsharp2", "C3");
+                                });
+                                break;
+
+                            case "Fsharp2":
+                                notesToSelect = [".Fsharp2", ".A2", ".Csharp3"];
+                                coloringNotes(".Fsharp2", ".A2", ".Csharp3", "yellow");
+                                $(".Fsharp2").click(function () {
+                                    playChords("Fsharp2", "A2", "Csharp3");
+                                });
+                                break;
+
+                            case "G2":
+                                notesToSelect = [".G2", ".Asharp2", ".D3"];
+                                coloringNotes(".G2", ".Asharp2", ".D3", "yellow");
+                                $(".G2").click(function () {
+                                    playChords("G2", "Asharp2", "D3");
+                                });
+                                break;
+
+                            case "Gsharp2":
+                                notesToSelect = [".Gsharp2", ".B2", ".Dsharp3"];
+                                coloringNotes(".Gsharp2", ".B2", ".Dsharp3", "yellow");
+                                $(".Gsharp2").click(function () {
+                                    playChords("Gsharp2", "B2", "Dsharp3");
+                                });
+                                break;
+
+                            case "A2":
+                                notesToSelect = [".A2", ".C3", ".E3"];
+                                coloringNotes(".A2", ".C3", ".E3", "yellow");
+                                $(".A2").click(function () {
+                                    playChords("A2", "C3", "E3");
+                                });
+                                break;
+
+                            case "Asharp2":
+                                notesToSelect = [".Asharp2", ".Csharp3", ".F3"];
+                                coloringNotes(".Asharp2", ".Csharp3", ".F3", "yellow");
+                                $(".Asharp2").click(function () {
+                                    playChords("Asharp2", "Csharp3", "F3");
+                                });
+                                break;
+
+                            case "B2":
+                                notesToSelect = [".B2", ".D3", ".Fsharp3"];
+                                coloringNotes(".B2", ".D3", ".Fsharp3", "yellow");
+                                $(".B2").click(function () {
+                                    playChords("B2", "D3", "Fsharp3");
+                                });
+                                break;
+
+                            default:
+                            // code block
+                        }
+
+                        function coloringNotes(note1, note2, note3, notesColor) {
+                            originalColor.push($(note1).css("background-color"));
+                            originalColor.push($(note2).css("background-color"));
+                            originalColor.push($(note3).css("background-color"));
+
+                            $(note1).css("background-color", notesColor);
+                            $(note2).css("background-color", notesColor);
+                            $(note3).css("background-color", notesColor);
+                        }
+
+                        function uncoloringNotes(note1, note2, note3, notesColor1, notesColor2, notesColor3) {
+                            $(note1).css("background-color", notesColor1);
+                            $(note2).css("background-color", notesColor2);
+                            $(note3).css("background-color", notesColor3);
+                            originalColor = [];
+                        }
+
+                        function playChords(note1, note2, note3) {
+                            document.getElementById(note1).currentTime = 0;
+                            document.getElementById(note2).currentTime = 0;
+                            document.getElementById(note3).currentTime = 0;
+
+                            document.getElementById(note1).play();
+                            document.getElementById(note2).play();
+                            document.getElementById(note3).play();
+                        }
+                    });
+                }
+            });
+
+            $("div").click(function () {
+                var myClass = $(this).attr("class").split(" ").pop();
+                document.getElementById("" + myClass + "").currentTime = 0;
+                document.getElementById("" + myClass + "").play();
+
+                $("." + myClass + "").css("border", "4px solid white");
+                setTimeout(function () {
+                    $("." + myClass + "").css("border", "3px solid black");
+                }, 400);
+            });
+
+           
+                
+
+                $(document).on("keydown", function (event) {
+                    var keycode = event.key ? event.key : event.which;
+                    switch (keycode) {
+                        case "q":
+                            playNote("C1");
+                            break;
+
+                        case "2":
+                            playNote("Csharp1");
+                            break;
+
+                        case "w":
+                            playNote("D1");
+                            break;
+
+                        case "3":
+                            playNote("Dsharp1");
+                            break;
+
+                        case "e":
+                            playNote("E1");
+                            break;
+
+                        case "r":
+                            playNote("F1");
+                            break;
+
+                        case "5":
+                            playNote("Fsharp1");
+                            break;
+
+                        case "t":
+                            playNote("G1");
+                            break;
+
+                        case "6":
+                            playNote("Gsharp1");
+                            break;
+
+                        case "y":
+                            playNote("A1");
+                            break;
+
+                        case "7":
+                            playNote("Asharp1");
+                            break;
+
+                        case "u":
+                            playNote("B1");
+                            break;
+
+                        case "i":
+                            playNote("C2");
+                            break;
+
+                        case "9":
+                            playNote("Csharp2");
+                            break;
+
+                        case "o":
+                            playNote("D2");
+                            break;
+
+                        case "0":
+                            playNote("Dsharp2");
+                            break;
+
+                        case "p":
+                            playNote("E2");
+                            break;
+
+                        case "^^":
+                            playNote("F2");
+                            break;
+
+                        case "=":
+                            playNote("Fsharp2");
+                            break;
+
+                        case "z":
+                            playNote("G2");
+                            break;
+
+                        //////////////////////
+
+                        case "s":
+                            playNote("Gsharp2");
+                            break;
+
+                        case "x":
+                            playNote("A2");
+                            break;
+
+                        case "d":
+                            playNote("Asharp2");
+                            break;
+
+                        case "c":
+                            playNote("B2");
+                            break;
+
+                        case "v":
+                            playNote("C3");
+                            break;
+                    }
+
+                    function playNote(note) {
+                        document.getElementById(note).currentTime = 0;
+                        document.getElementById(note).play();
+                        $("." + note + "").css("border", "4px solid white");
+                        setTimeout(function () {
+                            $("." + note + "").css("border", "3px solid black");
+                        }, 400);
+                    }
+                
 
 
-
-
-});
-
-  
-  </script>
-
-    
-  </body>
-  
- 
-  
+            });
+			
+			});
+        </script>
+    </body>
 </html>
