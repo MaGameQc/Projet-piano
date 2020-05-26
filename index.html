@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -5,44 +6,48 @@
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
+		<link rel="stylesheet" type="text/css" href="styles.css">
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous" />
 
 		
+		
 		<link href="https://fonts.googleapis.com/css2?family=Kumar+One+Outline&family=Londrina+Outline&display=swap" rel="stylesheet">
 		
-        <title>Hello, world!</title>
+        <title>LearnPiano.ca</title>
     </head>
-    <body style="">
+    <body>
 	
-    <div id="bg" class="d-flex justify-content-center p-0 m-0" style="background-color: #FF9F43; height: 50vh; ">
-            <h1 class="align-self-end" style="font-size: 4rem; backdrop-filter: blur(20px) brightness(120%); padding: 1%; border-radius: 12px;">LearnPiano.ca</h1>
+     <div id="bg" class="d-flex justify-content-center p-0 m-0" style="background-color: #FF9F43;  ">
+           <h1 class="align-self-end" style=" backdrop-filter: blur(20px) brightness(120%); padding: 1%; border-radius: 12px; font-size: 4vw;">LearnPiano.ca</h1>
 
+	</div> 
+	
+  
+	
+	<div class="container-fluid m-0 pt-5" id="subContainer" style="background-color: #2d3436; background-image: linear-gradient(180deg, #2d3436 0%, #d3d3d3 74%);  color: #48DBFB;">
+	
+	
+	<div class="row">
+		<div class="col-12">
+		<div class="row">
+			<div class=" mx-auto">
+		            <label class="mx-auto" for="points" style="font-size: 1rem; backdrop-filter: blur(20px) brightness(120%); padding: 4px; border-radius: 12px; text-shadow: 1px 1px 2px black;">Volume :</label>
+            <input class=" mx-auto" type="range" id="volumeRange" name="volumeRange" min="0" max="1" step="0.1" />
 	</div>
-	<style>
-	#bg{
-	  /* The image used */
-  background-image: url("marc.png");
-
-  font-family: 'Kumar One Outline', cursive;
-
-  font-weight: 900;
-  
-  text-shadow: 0px 0px 6px #48DBFB;
-
-  /* Center and scale the image nicely */
-  background-position: top-25%;
-  background-repeat: no-repeat;
-  background-size: cover;
-   
-     color : #FF9F43;
-  }
-  
-
-	</style>
+	</div>
+	</div>
+	</div>
 	
-	<div class="container-fluid m-0 pt-5" id="subContainer" style="background-color: #2d3436; background-image: linear-gradient(180deg, #2d3436 0%, #d3d3d3 74%); height: 75vh; color: #48DBFB;">
-        <label style="font-size: 1rem; backdrop-filter: blur(20px) brightness(120%); padding: 1%; border-radius: 12px;">Mode :</label>
+	
+	
+
+
+<div class="row">
+		<div class="col-12">	
+
+<div style="text-align: center;">
+        <label style="font-size: 1rem; backdrop-filter: blur(20px) brightness(120%); padding: 4px; border-radius: 12px; text-shadow: 1px 1px 2px black;">Mode :</label>
         <select id="mode">
             <option value=""></option>
             <option value="majorScale">Major Scale (Ionian)</option>
@@ -54,9 +59,9 @@
             <option value="locrianScale">Locrian scale</option>
         </select>
 
-        <br />
+			
 
-        <label style="font-size: 1rem; backdrop-filter: blur(20px) brightness(120%); padding: 1%; border-radius: 12px;">root :</label>
+        <label style="font-size: 1rem; backdrop-filter: blur(20px) brightness(120%); padding: 4px; border-radius: 12px; text-shadow: 1px 1px 2px black;">root :</label>
         <select id="root">
             <option value=""></option>
             <option value="C1">C1</option>
@@ -74,122 +79,51 @@
             <option value="C2">C2</option>
         </select>
 
-        <br />
+        
 
-        <label style="font-size: 1rem; backdrop-filter: blur(20px) brightness(120%); padding: 1%; border-radius: 12px;">Chords mode</label>
+        <label style="font-size: 1rem; backdrop-filter: blur(20px) brightness(120%); padding: 4px; border-radius: 12px; text-shadow: 1px 1px 2px black;">Chords mode</label>
         <select id="chords">
             <option value=""></option>
             <option value="majorChords">Major Chords Mode</option>
             <option value="minorChords">Minor Chords Mode</option>
         </select>
 		
-
+		
+		<button class="btn btn-primary" style="">play scale</button>
+		
+	</div>
+	</div>
+	</div>
         
-            <label for="points" style="font-size: 1rem; backdrop-filter: blur(20px) brightness(120%); padding: 1%; border-radius: 12px;">Volume :</label>
-            <input type="range" class="" id="volumeRange" name="volumeRange" min="0" max="1" step="0.1" />
+
 
 			
-			<style>
-input[type=range] {
-  -webkit-appearance: none;
-  margin: 18px 0;
-  width: 10%;
-}
-input[type=range]:focus {
-  outline: none;
-}
-input[type=range]::-webkit-slider-runnable-track {
-  width: 100%;
-  height: 8.4px;
-  cursor: pointer;
-  animate: 0.2s;
-  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
-  background: #48DBFB;
-  border-radius: 1.3px;
-  border: 0.2px solid #010101;
-}
-input[type=range]::-webkit-slider-thumb {
-  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
-  border: 1px solid #48DBFB;
-  height: 36px;
-  width: 16px;
-  border-radius: 3px;
-  background: #FF9F43;
-  cursor: pointer;
-  -webkit-appearance: none;
-  margin-top: -14px;
-}
-input[type=range]:focus::-webkit-slider-runnable-track {
-  background: #48DBFB;
-}
-input[type=range]::-moz-range-track {
-  width: 100%;
-  height: 8.4px;
-  cursor: pointer;
-  animate: 0.2s;
-  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
-  background: #48DBFB;
-  border-radius: 1.3px;
-  border: 0.2px solid #010101;
-}
-input[type=range]::-moz-range-thumb {
-  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
-  border: 1px solid #48DBFB;
-  height: 36px;
-  width: 16px;
-  border-radius: 3px;
-  background: #FF9F43;
-  cursor: pointer;
-}
-input[type=range]::-ms-track {
-  width: 100%;
-  height: 8.4px;
-  cursor: pointer;
-  animate: 0.2s;
-  background: transparent;
-  border-color: transparent;
-  border-width: 16px 0;
-  color: transparent;
-}
-input[type=range]::-ms-fill-lower {
-  background: #2a6495;
-  border: 0.2px solid #010101;
-  border-radius: 2.6px;
-  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
-}
-input[type=range]::-ms-fill-upper {
-  background: #3071a9;
-  border: 0.2px solid #010101;
-  border-radius: 2.6px;
-  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
-}
-input[type=range]::-ms-thumb {
-  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
-  border: 1px solid #000000;
-  height: 36px;
-  width: 16px;
-  border-radius: 3px;
-  background: #ffffff;
-  cursor: pointer;
-}
-input[type=range]:focus::-ms-fill-lower {
-  background: #3071a9;
-}
-input[type=range]:focus::-ms-fill-upper {
-  background: #367ebd;
-}
-			</style>
+
            
 
-            <button class="btn btn-primary" style="">play scale</button>
+            
 			
-			<label style="font-size: 1rem; backdrop-filter: blur(20px) brightness(120%); padding: 1%; border-radius: 12px;">bpm</label>
+
+<div class="row">
+		<div class="col-12 ">
+		<div class="row">
+		<div class="mx-auto">
+
+			<label class="" style="font-size: 1rem; backdrop-filter: blur(20px) brightness(120%); padding: 4px; border-radius: 12px; text-shadow: 1px 1px 2px black;">bpm</label>
 			<input id="bpm" type="text" value="30">
-			<a id="playMetronome" class="btn btn-primary">start metronome</a>
-			<a id="stopMetronome" class="btn btn-primary">start metronome</a>
+			<a id="playMetronome" class="btn btn-primary" style="color: white"><img id="metronomeButton" style="height : 30px" src="metronome1.png"></a>
+			<a id="stopMetronome" class="btn btn-primary">stop metronome</a>
 			<audio id="metronomeSound" src="https://www.magame.ca/piano/metronome/toc.wav"></audio>
 			<audio id="metronomeTick" src="https://www.magame.ca/piano/metronome/tick.wav"></audio>
-			
+
+		</div>
+		</div>
+		</div>
+		</div>
+		
+		
+		
+		
 			<div id="mainBody" class="row p-0 m-0" style="max-width: 100vw;">
 			
             <div id="keyboard">
@@ -220,60 +154,7 @@ input[type=range]:focus::-ms-fill-upper {
                 <div class="key white c C3" data-note="C5" style="text-align: center; color: white;">C</div>
             </div>
         </div>
-        <style>
-            #mainBody {
-                height: 100%;
-                display: flex;
-                justify-content: center;
-            }
 
-            /*#body {
-                height: 100%;
-                display: -webkit-box;
-                display: flex;
-                margin: auto;
-                -webkit-box-pack: center;
-                justify-content: center;
-                -webkit-box-align: center;
-                align-items: center;
-                background-color: #111;
-            }*/
-
-            .key {
-                float: left;
-                position: relative;
-            }
-
-            .white {
-                height: 14.4vw;
-                //width: 3.8095238095vw;
-                width: 5.71428571425vw;
-                z-index: 1;
-                border: 3px solid black;
-                background-color: #cbcbcb;
-            }
-
-            .black {
-                height: 7.92vw;
-                width: 2.0952380952vw;
-                z-index: 2;
-                border: 3px solid black;
-                background-color: #222222;
-            }
-
-            .a,
-            .b,
-            .d,
-            .e,
-            .g,
-            .black {
-                margin: 0 0 0 -1.1676190476vw;
-            }
-
-            #keyboard > .note:last-child {
-                border-right: 0.12vw solid #aaaaaa;
-            }
-        </style>
 
         <section id="wrap">
             <section id="main">
@@ -309,6 +190,9 @@ input[type=range]:focus::-ms-fill-upper {
         <p class="note-info"></p>
 		
 		</div>
+		
+		</div>
+		
 
         <script></script>
 
@@ -324,7 +208,7 @@ input[type=range]:focus::-ms-fill-upper {
          var deg = 0;
          setInterval(function(){
              deg += 0.3;
-             console.log(deg + " degre");
+             
             $("#subContainer").css({background:  "linear-gradient("+deg+"deg, #2d3436 0%, #d3d3d3 74%)"});
          },20);
 		 
@@ -335,17 +219,29 @@ input[type=range]:focus::-ms-fill-upper {
 			let inputBpm = $("#bpm").val();
 			let bpm = minute / inputBpm ;
 			let times = 0;
+			let metronomeState = 1;
 			console.log(bpm + " bpm ");
 			
 			var metronome = setInterval(function(){
 			if(times < 3){
 				document.getElementById("metronomeSound").currentTime = 0;
 				document.getElementById("metronomeSound").play();
+				if(metronomeState > 2){
+					metronomeState = 1;
+				}
+				$("#metronomeButton").attr("src", "metronome"+metronomeState+".png");
+				metronomeState++
+				
 				times++
 				console.log(times);
 				} else{
 					document.getElementById("metronomeTick").currentTime = 0;
 					document.getElementById("metronomeTick").play();
+					if(metronomeState > 2){
+					metronomeState = 1;
+				}
+				$("#metronomeButton").attr("src", "metronome"+metronomeState+".png");
+					metronomeState++
 					console.log(times);
 					times = 0;
 				}
@@ -1031,13 +927,18 @@ input[type=range]:focus::-ms-fill-upper {
 
             $(document).on("input", "#volumeRange", function () {
                 $("audio").each(function () {
+					if($(this).attr("id") == "metronomeSound" || $(this).attr("id") == "metronomeTick"){
+					console.log("volume /");
+						$(this).prop("volume", $("#volumeRange").val() /4);
+					} else{
                     $(this).prop("volume", $("#volumeRange").val());
+					}
                 });
             });
 
             // 60 represents middle C
             var level1Notes = [60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72];
-
+//décommenter if et else
             if (navigator.requestMIDIAccess) {
                 console.log("WebMIDI is supported in this browser.");
                 navigator.requestMIDIAccess({ sysex: true }).then(onMIDISuccess, onMIDIFailure);

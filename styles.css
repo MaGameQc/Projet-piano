@@ -1,0 +1,176 @@
+body, html {
+  height: 100%;
+}
+  
+  #bg{
+	  /* The image used */
+  background-image: url("marc.png");
+
+  font-family: 'Kumar One Outline', cursive;
+
+  font-weight: 900;
+  
+  text-shadow: 0px 0px 6px #48DBFB;
+
+  height: 50%;
+  
+
+  /* Center and scale the image nicely */
+  background-position: top-25%;
+  background-repeat: no-repeat;
+  background-size: cover;
+   
+     color : #FF9F43;
+  }
+  
+  #subContainer{
+    height: 100%;
+  }
+  /*   ---------------------------------------------------- input range -------------------------------------*/
+  
+  input[type=range] {
+  -webkit-appearance: none;
+  margin: 18px 0;
+  width: 10vw;
+}
+input[type=range]:focus {
+  outline: none;
+}
+input[type=range]::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 8.4px;
+  cursor: pointer;
+  animate: 0.2s;
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+  background: #48DBFB;
+  border-radius: 1.3px;
+  border: 0.2px solid #010101;
+}
+input[type=range]::-webkit-slider-thumb {
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+  border: 1px solid #48DBFB;
+  height: 36px;
+  width: 16px;
+  border-radius: 3px;
+  background: #FF9F43;
+  cursor: pointer;
+  -webkit-appearance: none;
+  margin-top: -14px;
+}
+input[type=range]:focus::-webkit-slider-runnable-track {
+  background: #48DBFB;
+}
+input[type=range]::-moz-range-track {
+  width: 100%;
+  height: 8.4px;
+  cursor: pointer;
+  animate: 0.2s;
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+  background: #48DBFB;
+  border-radius: 1.3px;
+  border: 0.2px solid #010101;
+}
+input[type=range]::-moz-range-thumb {
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+  border: 1px solid #48DBFB;
+  height: 36px;
+  width: 16px;
+  border-radius: 3px;
+  background: #FF9F43;
+  cursor: pointer;
+}
+input[type=range]::-ms-track {
+  width: 100%;
+  height: 8.4px;
+  cursor: pointer;
+  animate: 0.2s;
+  background: transparent;
+  border-color: transparent;
+  border-width: 16px 0;
+  color: transparent;
+}
+input[type=range]::-ms-fill-lower {
+  background: #2a6495;
+  border: 0.2px solid #010101;
+  border-radius: 2.6px;
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+}
+input[type=range]::-ms-fill-upper {
+  background: #3071a9;
+  border: 0.2px solid #010101;
+  border-radius: 2.6px;
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+}
+input[type=range]::-ms-thumb {
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+  border: 1px solid #000000;
+  height: 36px;
+  width: 16px;
+  border-radius: 3px;
+  background: #ffffff;
+  cursor: pointer;
+}
+input[type=range]:focus::-ms-fill-lower {
+  background: #3071a9;
+}
+input[type=range]:focus::-ms-fill-upper {
+  background: #367ebd;
+}
+
+/*--------------------------------------- fin input range ------------------------------------- */
+
+
+  #mainBody {
+                height: 100%;
+                display: flex;
+                justify-content: center;
+            }
+
+            /*#body {
+                height: 100%;
+                display: -webkit-box;
+                display: flex;
+                margin: auto;
+                -webkit-box-pack: center;
+                justify-content: center;
+                -webkit-box-align: center;
+                align-items: center;
+                background-color: #111;
+            }*/
+
+            .key {
+                float: left;
+                position: relative;
+            }
+
+            .white {
+                height: 14.4vw;
+                //width: 3.8095238095vw;
+                width: 5.71428571425vw;
+                z-index: 1;
+                border: 3px solid black;
+                background-color: #cbcbcb;
+            }
+
+            .black {
+                height: 7.92vw;
+                width: 2.0952380952vw;
+                z-index: 2;
+                border: 3px solid black;
+                background-color: #222222;
+            }
+
+            .a,
+            .b,
+            .d,
+            .e,
+            .g,
+            .black {
+                margin: 0 0 0 -1.1676190476vw;
+            }
+
+            #keyboard > .note:last-child {
+                border-right: 0.12vw solid #aaaaaa;
+            }
+			
+			
